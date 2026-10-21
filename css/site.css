@@ -1,8 +1,8 @@
 /* Base look (Lead Developer owns this file) */
 body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: var(--leading-body); }
 h1, h2, h3 { font-family: var(--font-heading); }
-a { color: var(--color-accent); }
-a:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+a { color: var(--color-primary); }
+a:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
 section { padding: var(--space-6) 0; }
 img, svg { max-width: 100%; height: auto; }
 .menu-group { margin-bottom: var(--space-5); }
