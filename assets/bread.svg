@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-labelledby="t"><title id="t">A round loaf of crusty bread with scoring cuts</title>
+<ellipse cx="120" cy="146" rx="90" ry="8" fill="#3b2416" opacity=".15"/>
+<path d="M25 110C22 60 65 22 120 22s98 38 95 88c-1 18-20 30-95 30S26 128 25 110z" fill="#c07a34"/>
+<path d="M35 105C35 62 72 32 120 32s85 30 85 73c0 14-18 24-85 24S35 119 35 105z" fill="#d9944a"/>
+<g fill="none" stroke="#f6dcae" stroke-width="7" stroke-linecap="round"><path d="M72 52c8 20 12 40 8 62"/><path d="M110 40c6 24 8 48 4 76"/><path d="M150 46c4 22 4 44-2 68"/></g>
+<path d="M60 100c10 8 30 12 60 12" fill="none" stroke="#a65f22" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+</svg>
