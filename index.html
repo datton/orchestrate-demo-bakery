@@ -25,24 +25,83 @@
 
   <main id="main">
     <section id="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title"><!-- Full-Stack: headline --></h1>
-      <p><!-- Full-Stack: one-line welcome --></p>
+      <h1 id="hero-title">Fresh bread, baked every morning</h1>
+      <p>Welcome to our neighbourhood bakery. Come in for a warm loaf, a flaky pastry or a slice of cake.</p>
     </section>
     <section id="menu" aria-labelledby="menu-title">
       <h2 id="menu-title">Menu</h2>
-      <!-- Full-Stack: bread, pastries, cakes, drinks -->
+      <p>A few of our everyday favourites. What is on the shelf changes with the day.</p>
+      <div class="menu-group">
+        <h3>Bread</h3>
+      <ul>
+        <li><strong>Sourdough loaf</strong> &ndash; slow-risen, with a crisp crust</li>
+        <li><strong>Baguette</strong> &ndash; light inside, crackly outside</li>
+        <li><strong>Wholemeal sandwich loaf</strong> &ndash; good for toast and lunches</li>
+        <li><strong>Rye bread</strong> &ndash; dense, dark and a little tangy</li>
+      </ul>
+      </div>
+      <div class="menu-group">
+        <h3>Pastries</h3>
+      <ul>
+        <li><strong>Butter croissant</strong> &ndash; layered and flaky</li>
+        <li><strong>Pain au chocolat</strong> &ndash; a croissant with dark chocolate</li>
+        <li><strong>Cinnamon bun</strong> &ndash; soft, sticky and spiced</li>
+        <li><strong>Apple turnover</strong> &ndash; baked apple in puff pastry</li>
+      </ul>
+      </div>
+      <div class="menu-group">
+        <h3>Cakes</h3>
+      <ul>
+        <li><strong>Chocolate cake</strong> &ndash; rich, with chocolate icing</li>
+        <li><strong>Carrot cake</strong> &ndash; moist, with cream cheese frosting</li>
+        <li><strong>Lemon drizzle loaf</strong> &ndash; sharp, sweet and zesty</li>
+        <li><strong>Birthday cakes</strong> &ndash; ask us about custom orders</li>
+      </ul>
+      </div>
+      <div class="menu-group">
+        <h3>Drinks</h3>
+      <ul>
+        <li><strong>Coffee</strong> &ndash; espresso, americano, latte and cappuccino</li>
+        <li><strong>Tea</strong> &ndash; a choice of black, green and herbal</li>
+        <li><strong>Hot chocolate</strong> &ndash; made with real chocolate</li>
+        <li><strong>Fresh orange juice</strong> &ndash; squeezed to order</li>
+      </ul>
+      </div>
     </section>
     <section id="hours" aria-labelledby="hours-title">
       <h2 id="hours-title">Hours &amp; location</h2>
-      <!-- Full-Stack: opening hours, address -->
+      <p id="open-status" role="status"></p>
+      <h3>Opening hours</h3>
+      <table class="hours-table">
+        <thead><tr><th scope="col">Day</th><th scope="col">Hours</th></tr></thead>
+        <tbody>
+          <tr data-days="1,2,3,4,5" data-open="7" data-close="18"><th scope="row">Monday to Friday</th><td>7:00 am &ndash; 6:00 pm</td></tr>
+          <tr data-days="6" data-open="8" data-close="17"><th scope="row">Saturday</th><td>8:00 am &ndash; 5:00 pm</td></tr>
+          <tr data-days="0" data-open="8" data-close="14"><th scope="row">Sunday</th><td>8:00 am &ndash; 2:00 pm</td></tr>
+        </tbody>
+      </table>
+      <h3>Find us</h3>
+      <address>
+        Example Bakery<br>
+        123 Sample Street<br>
+        Anytown<br>
+        <small>(A fictional address for this demonstration.)</small>
+      </address>
     </section>
     <section id="about" aria-labelledby="about-title">
       <h2 id="about-title">About</h2>
-      <!-- Full-Stack: our story -->
+      <p>We are a small bakery with a simple idea: make good bread and pastries by hand, from simple ingredients, and share them with the people who live nearby.</p>
+      <p>Our bakers start before sunrise. Dough is mixed, shaped and left to rest, so that the loaves are ready when the doors open. Pastries are rolled and folded by hand, and cakes are baked in small batches.</p>
+      <p>This is a demonstration bakery, so the details on this page are examples, not a real shop.</p>
     </section>
     <section id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
-      <!-- Full-Stack: contact details -->
+      <p>Questions, or a cake to order? Get in touch.</p>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:hello@example.com">hello@example.com</a></li>
+        <li>Phone: 555-0100 (a fictional demonstration number)</li>
+      </ul>
+      <p>For birthday cakes and large orders, please ask a few days ahead.</p>
     </section>
   </main>
 
