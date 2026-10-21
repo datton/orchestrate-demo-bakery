@@ -1,7 +1,13 @@
 /* Base look (Lead Developer owns this file) */
-body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.6; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: var(--leading-body); }
 h1, h2, h3 { font-family: var(--font-heading); }
 a { color: var(--color-accent); }
 a:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
-section { padding: calc(var(--space) * 2) 0; }
+section { padding: var(--space-6) 0; }
 img, svg { max-width: 100%; height: auto; }
+.menu-group { margin-bottom: var(--space-5); }
+.menu-group ul, .contact-list { padding-left: var(--space-5); }
+.hours-table { border-collapse: collapse; width: 100%; max-width: 32rem; }
+.hours-table th, .hours-table td { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border); }
+.hours-table tr.today { background: var(--color-surface-alt); font-weight: 600; }
+address { font-style: normal; }
