@@ -50,8 +50,8 @@
     <section class="hero page-hero" aria-labelledby="visit-title">
       <div class="container hero__inner">
         <span class="kicker" data-reveal>Visit</span>
-        <h1 class="hero__title" id="visit-title" data-split>Come in, skip the line, say hello.</h1>
-        <p class="lead" data-reveal>Two stores, each with a pickup shelf for orders placed ahead. Open or closed right now is shown on each store.</p>
+        <h1 class="hero__title" id="visit-title" data-split>Come in, smell the bread, say hello.</h1>
+        <p class="lead" data-reveal>Two bakeries, each with a pickup spot for orders placed ahead. Open or closed right now is shown on each one.</p>
       </div>
     </section>
 
@@ -61,36 +61,37 @@
       <div class="container">
         <h2 class="visually-hidden" id="stores-title">Our stores</h2>
         <div class="stores" data-reveal-group>
-          <article class="store-card" aria-labelledby="store-harbour">
+          <article class="store-card" aria-labelledby="store-old-town">
             <div class="store-card__head">
-              <h3 id="store-harbour">Harbour Street</h3>
-              <span data-store-status="harbour"></span>
+              <h3 id="store-old-town">Old Town</h3>
+              <span data-store-status="old-town"></span>
             </div>
-            <p class="store-card__area">By the ferry terminal</p>
+            <p class="store-card__area">On the corner by the market square</p>
             <dl class="hours">
-              <div><dt>Monday to Friday</dt><dd>6:30 am – 7:00 pm</dd></div>
-              <div><dt>Saturday and Sunday</dt><dd>7:30 am – 6:00 pm</dd></div>
-            </dl>
-            <p class="store-card__pickup">Order-ahead pickup: <strong>the shelf by the door</strong>. Most orders take about 4 minutes.</p>
-            <div class="store-card__actions">
-              <a class="btn btn--primary" href="menu.html" data-order-store="harbour">Order ahead from here</a>
-              <a class="btn" href="board.html?store=harbour">Now serving</a>
-            </div>
-          </article>
-          <article class="store-card" aria-labelledby="store-mill">
-            <div class="store-card__head">
-              <h3 id="store-mill">Old Mill</h3>
-              <span data-store-status="mill"></span>
-            </div>
-            <p class="store-card__area">In the old mill yard</p>
-            <dl class="hours">
-              <div><dt>Monday to Saturday</dt><dd>7:00 am – 5:00 pm</dd></div>
+              <div><dt>Monday to Friday</dt><dd>7:00 am – 6:00 pm</dd></div>
+              <div><dt>Saturday</dt><dd>7:30 am – 5:00 pm</dd></div>
               <div><dt>Sunday</dt><dd>8:00 am – 3:00 pm</dd></div>
             </dl>
-            <p class="store-card__pickup">Order-ahead pickup: <strong>the counter on the left as you come in</strong>. Most orders take about 6 minutes.</p>
+            <p class="store-card__pickup">Order-ahead pickup: <strong>the shelf inside the door, sorted by number</strong>. Most orders take about 4 minutes.</p>
             <div class="store-card__actions">
-              <a class="btn btn--primary" href="menu.html" data-order-store="mill">Order ahead from here</a>
-              <a class="btn" href="board.html?store=mill">Now serving</a>
+              <a class="btn btn--primary" href="menu.html" data-order-store="old-town">Order ahead from here</a>
+              <a class="btn" href="board.html?store=old-town">Now serving</a>
+            </div>
+          </article>
+          <article class="store-card" aria-labelledby="store-riverside">
+            <div class="store-card__head">
+              <h3 id="store-riverside">Riverside</h3>
+              <span data-store-status="riverside"></span>
+            </div>
+            <p class="store-card__area">Along the river path, next to the bike racks</p>
+            <dl class="hours">
+              <div><dt>Monday to Friday</dt><dd>6:30 am – 5:00 pm</dd></div>
+              <div><dt>Saturday and Sunday</dt><dd>8:00 am – 4:00 pm</dd></div>
+            </dl>
+            <p class="store-card__pickup">Order-ahead pickup: <strong>ask at the counter with your pickup number</strong>. Most orders take about 5 minutes.</p>
+            <div class="store-card__actions">
+              <a class="btn btn--primary" href="menu.html" data-order-store="riverside">Order ahead from here</a>
+              <a class="btn" href="board.html?store=riverside">Now serving</a>
             </div>
           </article>
         </div>
@@ -101,11 +102,11 @@
       <div class="container">
         <div class="section-head">
           <span class="kicker">Picking up</span>
-          <h2 class="mask" id="pickup-title"><span class="mask__line"><span>Straight to the shelf,</span></span> <span class="mask__line"><span>never to the back of the line.</span></span></h2>
+          <h2 class="mask" id="pickup-title"><span class="mask__line"><span>Straight to your order,</span></span> <span class="mask__line"><span>never to the back of the line.</span></span></h2>
         </div>
         <ol class="pickup-steps" data-reveal-group>
           <li><span class="pickup-steps__n">1</span><h3>Watch your number</h3><p>Your order page and the screen in store show when it moves from being made to ready.</p></li>
-          <li><span class="pickup-steps__n">2</span><h3>Find your name</h3><p>Ready orders wait on the pickup shelf with your name and pickup number on them.</p></li>
+          <li><span class="pickup-steps__n">2</span><h3>Find your number</h3><p>At Old Town, ready orders wait on the shelf inside the door, sorted by number. At Riverside, ask at the counter.</p></li>
           <li><span class="pickup-steps__n">3</span><h3>Show your code</h3><p>Show the QR code or say your 4-digit pickup code, and it is yours. A friend can collect it with your pickup link.</p></li>
         </ol>
       </div>
@@ -114,7 +115,7 @@
     <section class="section" aria-labelledby="questions-title">
       <div class="container center">
         <h2 class="display" id="questions-title" data-parallax>Questions? <span class="serif">Ask us</span> at the counter.</h2>
-        <p class="lead" data-reveal>Allergies, a big order for the office, or just which beans to take home: we are happy to help in person.</p>
+        <p class="lead" data-reveal>Allergies, a big order for the office, or which loaf to take home: we are happy to help in person.</p>
         <p data-reveal><a class="btn btn--primary btn--lg" href="menu.html">Start an order</a></p>
       </div>
     </section>
