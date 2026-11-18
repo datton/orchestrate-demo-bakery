@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counter · Hearth &amp; Crumb Bakery</title>
+<meta name="description" content="Staff counter: today's orders, scan and hand over.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/order.css">
+<style>@view-transition { navigation: auto; }</style>
+</head>
+<body class="order-page counter-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><nav aria-label="Main"><a class="brand" href="../index.html">Hearth &amp; Crumb Bakery</a>
+<a href="board.html">Now serving</a><a href="menu.html">Menu</a></nav></header>
+<main id="main" class="ctr">
+  <div class="ctr-top">
+    <h1>Counter</h1>
+    <label class="ctr-store">Store <select id="ctr-store" aria-label="Store"></select></label>
+  </div>
+  <div class="ctr-tools">
+    <form id="ctr-find" class="ctr-form" role="search">
+      <label for="ctr-q">Pickup number or 4-digit code</label>
+      <div class="ctr-row"><input id="ctr-q" inputmode="numeric" autocomplete="off" placeholder="e.g. 104 or 4821">
+      <button class="shop-btn" type="submit">Find</button>
+      <button class="shop-btn shop-btn--ghost" type="button" id="ctr-scan" hidden>Scan QR</button></div>
+    </form>
+    <div id="ctr-cam" class="ctr-cam" hidden><video id="ctr-video" playsinline muted></video><button class="shop-btn shop-btn--ghost" type="button" id="ctr-camstop">Stop camera</button></div>
+  </div>
+  <section id="ctr-focus" class="ctr-focus" aria-live="polite" hidden></section>
+  <div id="ctr-msg" class="ctr-msg" role="status"></div>
+  <div class="ctr-cols" id="ctr-cols"></div>
+</main>
+<footer class="site-footer"><p>Demo shop: test payments only. No real money moves.</p></footer>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/shop/counter.js" defer></script>
+</body></html>

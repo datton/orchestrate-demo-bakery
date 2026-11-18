@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Now serving · Hearth &amp; Crumb Bakery</title>
+<meta name="description" content="Orders being made and ready for pickup.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/order.css">
+<style>@view-transition { navigation: auto; }</style>
+</head>
+<body class="order-page board-page">
+<main id="main" class="brd">
+  <header class="brd-head"><h1>Now serving</h1><span id="brd-store" class="brd-store"></span></header>
+  <div class="brd-grid" aria-live="polite">
+    <section class="brd-col brd-ready" aria-labelledby="h-ready"><h2 id="h-ready">Ready</h2><ul id="brd-ready"></ul></section>
+    <section class="brd-col brd-making" aria-labelledby="h-making"><h2 id="h-making">Being made</h2><ul id="brd-making"></ul></section>
+  </div>
+  <footer class="brd-foot"><span id="brd-clock"></span><span>Order ahead at Hearth &amp; Crumb Bakery · Demo shop: test payments only. No real money moves.</span></footer>
+</main>
+<script src="../js/shop/board.js" defer></script>
+</body></html>
