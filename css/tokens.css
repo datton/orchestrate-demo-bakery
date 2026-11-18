@@ -1,0 +1,90 @@
+/* Hearth & Crumb Bakery: design tokens. Every page and the shop read only these.
+   Palette: flour-white cream, deep oven-brown neutrals, ONE accent (baked crust).
+   Contrast (WCAG AA): text #1d1612 on bg #fcf8ef = 16:1; muted #6b5f57 on bg = 5.6:1;
+   accent #94500f with white ink ≈ 6.7:1 (also as text on bg); on dark, #e8a14a on #1c130c ≈ 8.5:1 (estimates, not tool-checked).
+   Type: system fonts only; display headlines clamp 3-7rem, tight tracking. Motion: one ease, 400-900 ms, 60 ms stagger. */
+:root {
+  /* colour */
+  --bg: #fcf8ef;
+  --surface: #ffffff;
+  --surface-2: #f5ecdb;
+  --text: #1d1612;
+  --muted: #6b5f57;
+  --line: rgba(29, 22, 18, .14);
+  --accent: #94500f;
+  --accent-ink: #ffffff;
+  --accent-soft: #f7e6c8;
+  --accent-bright: #e8a14a;   /* accent for use on dark bands */
+  --dark: #1c130c;
+  --dark-2: #2a1d13;
+  --dark-text: #f8f0e2;
+  --dark-muted: #c9b8a2;      /* 9:1 on --dark */
+  --ok: #2f6b3f;
+  --warn: #8a5a00;
+  --danger: #b3261e;
+  --focus: var(--text);
+
+  /* type */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-display: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --fs-xs: .8125rem;
+  --fs-sm: .9375rem;
+  --fs-base: 1.0625rem;
+  --fs-lg: clamp(1.2rem, 1.1rem + .5vw, 1.5rem);
+  --fs-step: clamp(1.5rem, 1.1rem + 1.6vw, 2.5rem);      /* scrollytelling step text */
+  --fs-h2: clamp(2.2rem, 1.2rem + 4.2vw, 4.75rem);
+  --fs-h1: clamp(3rem, 1.4rem + 7vw, 7rem);               /* hero */
+  --fs-giant: clamp(5rem, 2rem + 16vw, 16rem);            /* marquee / changing word */
+  --fs-number: clamp(3rem, 2rem + 6vw, 6.5rem);           /* count-up numbers, pickup number */
+  --track-tight: -.035em;
+  --track-display: -.05em;
+  --lh-tight: 1.02;
+  --lh-body: 1.55;
+  --measure: 65ch;
+
+  /* space, shape, depth */
+  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
+  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem;
+  --section: clamp(5rem, 12vw, 10rem);
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --max: 76rem;
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(29, 22, 18, .06), 0 4px 12px -6px rgba(29, 22, 18, .12);
+  --shadow: 0 10px 30px -12px rgba(29, 22, 18, .25);
+  --shadow-lg: 0 30px 70px -24px rgba(29, 22, 18, .4);
+  --glow: radial-gradient(60% 60% at 50% 40%, rgba(232, 161, 74, .35), transparent 70%);
+  --gradient-text: linear-gradient(100deg, #94500f 0%, #c47a1e 45%, #efc06a 100%);
+  --gradient-sweep: linear-gradient(100deg, var(--text) 0%, var(--accent) 40%, #efc06a 60%, var(--text) 100%);
+
+  /* motion */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-fast: 400ms;
+  --dur: 650ms;
+  --dur-slow: 900ms;
+  --stagger: 60ms;
+  --marquee-speed: 50s;
+}
+
+/* Dark sections: add class "is-dark" to any section and the same tokens flip. */
+.is-dark {
+  --bg: var(--dark);
+  --surface: var(--dark-2);
+  --text: var(--dark-text);
+  --muted: var(--dark-muted);
+  --line: rgba(246, 238, 230, .16);
+  --accent: var(--accent-bright);
+  --accent-ink: #1c130c;
+  --focus: var(--dark-text);
+  background: var(--dark);
+  color: var(--dark-text);
+}
+
+.text-gradient { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; --dur-slow: 0ms; --stagger: 0ms; --marquee-speed: 0s; }
+}
