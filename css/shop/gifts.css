@@ -55,8 +55,8 @@
   .gift-buy { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2xl); }
   .gift-buy__preview { position: sticky; top: calc(var(--header-h) + var(--space-l)); }
 }
-.design-picker { display: grid; grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr)); gap: var(--space-xs); }
-.design-option { position: relative; display: grid; gap: var(--space-3xs); cursor: pointer; font-weight: var(--weight-semibold); font-size: var(--step--1); }
+.design-picker { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 7.5rem), 1fr)); gap: var(--space-xs); }
+.design-option { min-width: 0; position: relative; display: grid; gap: var(--space-3xs); cursor: pointer; font-weight: var(--weight-semibold); font-size: var(--step--1); }
 .design-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .design-option__swatch {
   display: grid;
