@@ -5,14 +5,14 @@
    reads ONLY these variables, so a new palette, type scale or motion feel is a change here and nowhere else.
 
    Contrast (WCAG AA) on --color-bg and --color-surface: --color-ink 16.7:1, --color-ink-muted 7.6:1,
-   --color-accent-ink 6.4:1, white on --color-accent 6.8:1, --color-on-dark on --color-dark 16.6:1. --color-ink-faint
+   --color-accent-ink 6.4:1, --color-on-accent on --color-accent 9.7:1, --color-on-dark on --color-dark 16.6:1. --color-ink-faint
    (3.7:1) is for large type only. Gift card designs pair each background with an ink of 4.5:1 or more.
    ===================================================================================================================== */
 
 :root {
   color-scheme: light;
 
-  /* ---- Colour: flour paper, butter-flour neutrals, dark-rye ink and ONE accent (baked crust) -------------------------------------- */
+  /* ---- Colour: flour paper, butter-flour neutrals, dark-rye ink and ONE accent (butter yellow, with crust-brown ink for text) -------------------------------------- */
   --color-bg: #fdf8ec;
   --color-surface: #ffffff;
   --color-surface-2: #f6ecd2;
@@ -22,17 +22,17 @@
   --color-line: #eee2c4;
   --color-line-strong: #d2c19c;
 
-  --color-accent: #8c4a0c;
-  --color-accent-hover: #6f3a08;
-  --color-on-accent: #ffffff;
-  --color-accent-soft: #fbe8c4;
-  --color-accent-ink: #8c4a0c;
+  --color-accent: #f2b632;            /* butter yellow: buttons, fills (dark text on it) */
+  --color-accent-hover: #e3a21a;
+  --color-on-accent: #22160c;         /* dark rye on butter: 9.7:1 */
+  --color-accent-soft: #fcefc8;
+  --color-accent-ink: #8c4a0c;        /* baked-crust text and links on light: 6.4:1 */
 
   --color-dark: #1a110a;
   --color-dark-2: #2a1d12;
   --color-on-dark: #faf1de;
   --color-on-dark-muted: #cbb99f;
-  --color-accent-on-dark: #f2b45c;
+  --color-accent-on-dark: #f5c04a;
   --color-line-dark: #43301c;
 
   --color-success: #1b6a3d;  --color-success-soft: #e2f1e7;
@@ -43,10 +43,10 @@
   --color-backdrop: rgb(26 17 10 / 0.52);
   --color-selection: #f5dca6;
 
-  --gradient-text: linear-gradient(100deg, var(--color-ink) 15%, var(--color-accent) 50%, var(--color-ink) 85%);
-  --gradient-glow: radial-gradient(55% 45% at 15% 15%, rgb(140 74 12 / 0.16), transparent 70%),
+  --gradient-text: linear-gradient(100deg, var(--color-ink) 15%, var(--color-accent-ink) 50%, var(--color-ink) 85%);
+  --gradient-glow: radial-gradient(55% 45% at 15% 15%, rgb(242 182 50 / 0.16), transparent 70%),
                    radial-gradient(45% 40% at 85% 25%, rgb(235 180 80 / 0.18), transparent 70%),
-                   radial-gradient(60% 50% at 60% 100%, rgb(140 74 12 / 0.07), transparent 70%);
+                   radial-gradient(60% 50% at 60% 100%, rgb(242 182 50 / 0.07), transparent 70%);
 
   /* ---- Shop states ------------------------------------------------------------------------------------------------ */
   --color-status-received: var(--color-ink);
@@ -62,14 +62,14 @@
   /* ---- Gift card designs (ids match shop/catalog.json giftCards.designs) ------------------------------------------- */
   --gift-default-bg: linear-gradient(140deg, #8c4a0c 0%, #4d2406 100%);
   --gift-default-ink: #fff8e8;
-  --gift-thanks-bg: linear-gradient(140deg, #f8dfa0 0%, #eab25a 100%);
+  --gift-thanks-bg: linear-gradient(140deg, #f8dfa0 0%, #f2b632 100%);
   --gift-thanks-ink: #2e1c0b;
   --gift-birthday-bg: linear-gradient(140deg, #6e1f1f 0%, #8a2a2a 100%);
   --gift-birthday-ink: #fff3f0;
-  --gift-congrats-bg: linear-gradient(140deg, #1f3518 0%, #2f4a24 100%);
-  --gift-congrats-ink: #f3f7ea;
-  --gift-break-bg: linear-gradient(140deg, #22160c 0%, #4d3320 100%);
-  --gift-break-ink: #faf1de;
+  --gift-weekend-bg: linear-gradient(140deg, #8c4a0c 0%, #4d2406 100%);
+  --gift-weekend-ink: #fff8e8;
+  --gift-welcome-bg: linear-gradient(140deg, #22160c 0%, #4d3320 100%);
+  --gift-welcome-ink: #faf1de;
 
   /* ---- Type: system fonts only ------------------------------------------------------------------------------------ */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -129,7 +129,7 @@
   --shadow-s: 0 1px 2px rgb(34 22 12 / 0.05), 0 4px 12px -4px rgb(34 22 12 / 0.12);
   --shadow-m: 0 2px 4px rgb(34 22 12 / 0.04), 0 14px 32px -12px rgb(34 22 12 / 0.24);
   --shadow-l: 0 4px 8px rgb(34 22 12 / 0.05), 0 30px 70px -24px rgb(34 22 12 / 0.42);
-  --shadow-glow: 0 12px 36px -12px rgb(140 74 12 / 0.55);
+  --shadow-glow: 0 12px 36px -12px rgb(242 182 50 / 0.55);
 
   /* ---- Layout ----------------------------------------------------------------------------------------------------- */
   --container: 74rem;
