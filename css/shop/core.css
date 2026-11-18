@@ -1,0 +1,98 @@
+/* Shared shop UI. Colours come from css/tokens.css when it defines them; the fallbacks keep it usable before. */
+:root {
+  --shop-accent: var(--accent, #b4532a);
+  --shop-accent-ink: var(--accent-ink, #fff);
+  --shop-bg: var(--bg, #fbf7f2);
+  --shop-surface: var(--surface, #fff);
+  --shop-text: var(--text, #1d1612);
+  --shop-muted: var(--muted, #6b5f57);
+  --shop-line: var(--line, rgba(29, 22, 18, .14));
+  --shop-radius: var(--radius, 16px);
+  --shop-ease: cubic-bezier(.2, .7, .2, 1);
+  --shop-tabbar-h: 0px;
+}
+.shop-noscroll { overflow: hidden; }
+
+/* buttons */
+.shop-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: .7rem 1.4rem;
+  border: 2px solid var(--shop-accent); border-radius: 999px; background: var(--shop-accent); color: var(--shop-accent-ink);
+  font: inherit; font-weight: 650; cursor: pointer; text-decoration: none; transition: transform .25s var(--shop-ease), box-shadow .25s var(--shop-ease), background .2s; }
+.shop-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .35); }
+.shop-btn:active { transform: translateY(0); }
+.shop-btn:focus-visible, .shop-chip:focus-visible, .shop-icon-btn:focus-visible, .shop-stepper button:focus-visible { outline: 3px solid var(--shop-text); outline-offset: 2px; }
+.shop-btn--ghost { background: transparent; color: var(--shop-text); border-color: var(--shop-line); }
+.shop-btn--block { display: flex; width: 100%; }
+.shop-btn[disabled], .shop-btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+.shop-icon-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--shop-line); background: var(--shop-surface); color: var(--shop-text); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+
+/* chips (filters, option choices) */
+.shop-chip { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; padding: .45rem 1rem; border: 1.5px solid var(--shop-line);
+  border-radius: 999px; background: var(--shop-surface); color: var(--shop-text); font: inherit; cursor: pointer; transition: border-color .2s, background .2s, transform .2s var(--shop-ease); }
+.shop-chip:hover { border-color: var(--shop-accent); transform: translateY(-1px); }
+.shop-chip[aria-pressed="true"], .shop-chip[aria-checked="true"], .shop-chip.is-on { background: var(--shop-accent); border-color: var(--shop-accent); color: var(--shop-accent-ink); }
+.shop-chip[disabled], .shop-chip.is-soldout { opacity: .45; text-decoration: line-through; cursor: not-allowed; }
+.shop-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.shop-badge { display: inline-block; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 650; background: color-mix(in srgb, var(--shop-accent) 14%, transparent); color: var(--shop-accent); }
+.shop-cartcount { display: inline-grid; place-items: center; min-width: 1.4em; height: 1.4em; padding: 0 .35em; border-radius: 999px; background: var(--shop-accent); color: var(--shop-accent-ink); font-size: .75rem; font-weight: 700; }
+.shop-cartcount[hidden] { display: none; }
+
+/* quantity stepper: <div class="shop-stepper"><button>−</button><output>1</output><button>+</button></div> */
+.shop-stepper { display: inline-flex; align-items: center; border: 1.5px solid var(--shop-line); border-radius: 999px; background: var(--shop-surface); }
+.shop-stepper button { width: 44px; height: 44px; border: 0; background: none; color: var(--shop-text); font-size: 1.3rem; cursor: pointer; border-radius: 50%; }
+.shop-stepper output { min-width: 2ch; text-align: center; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+/* cards and fields */
+.shop-card { background: var(--shop-surface); border: 1px solid var(--shop-line); border-radius: var(--shop-radius); padding: 1.1rem 1.25rem; box-shadow: 0 8px 28px -18px rgba(0, 0, 0, .3); }
+.shop-field { display: grid; gap: .35rem; margin-block: .9rem; }
+.shop-field label { font-weight: 600; font-size: .9rem; }
+.shop-field input, .shop-field select, .shop-field textarea { min-height: 48px; padding: .6rem .9rem; border: 1.5px solid var(--shop-line); border-radius: 12px; background: var(--shop-surface); color: var(--shop-text); font: inherit; }
+.shop-field input:focus-visible, .shop-field select:focus-visible, .shop-field textarea:focus-visible { outline: 3px solid var(--shop-accent); outline-offset: 1px; }
+.shop-muted { color: var(--shop-muted); }
+.shop-price { font-variant-numeric: tabular-nums; font-weight: 650; }
+.shop-notice { padding: .8rem 1rem; border-radius: 12px; background: color-mix(in srgb, var(--shop-accent) 10%, var(--shop-surface)); border: 1px solid var(--shop-line); }
+.shop-demo-label { font-size: .85rem; font-weight: 650; color: var(--shop-muted); }
+.shop-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* sheets: bottom sheet on phones, centred/side on desktop */
+.shop-sheet-wrap { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: flex-end; justify-content: center; pointer-events: none; }
+.shop-backdrop { position: absolute; inset: 0; background: rgba(15, 10, 6, .5); opacity: 0; transition: opacity .3s; pointer-events: auto; }
+.shop-sheet { position: relative; width: min(100%, 560px); max-height: 92dvh; display: flex; flex-direction: column; background: var(--shop-bg); color: var(--shop-text);
+  border-radius: 24px 24px 0 0; box-shadow: 0 -20px 60px -20px rgba(0, 0, 0, .5); transform: translateY(100%); transition: transform .4s var(--shop-ease); pointer-events: auto; }
+.shop-sheet-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--shop-line); }
+.shop-sheet-head h2 { margin: 0; font-size: 1.25rem; }
+.shop-sheet-body { overflow: auto; padding: 1.1rem 1.25rem 1.5rem; overscroll-behavior: contain; }
+.shop-sheet-wrap.is-open .shop-backdrop { opacity: 1; }
+.shop-sheet-wrap.is-open .shop-sheet { transform: none; }
+@media (min-width: 720px) {
+  .shop-sheet-wrap { align-items: center; }
+  .shop-sheet { border-radius: 24px; transform: translateY(24px) scale(.98); opacity: 0; transition: transform .4s var(--shop-ease), opacity .3s; }
+  .shop-sheet-wrap.is-open .shop-sheet { opacity: 1; }
+  .shop-sheet-wrap.is-right { justify-content: flex-end; align-items: stretch; }
+  .shop-sheet-wrap.is-right .shop-sheet { width: min(100%, 440px); max-height: none; border-radius: 24px 0 0 24px; transform: translateX(100%); opacity: 1; }
+  .shop-sheet-wrap.is-open.is-right .shop-sheet { transform: none; }
+}
+
+/* toasts */
+#shop-toasts { position: fixed; left: 50%; bottom: calc(var(--shop-tabbar-h) + 1rem); transform: translateX(-50%); z-index: 1200; display: grid; gap: .5rem; width: min(92vw, 420px); pointer-events: none; }
+.shop-toast { padding: .8rem 1.1rem; border-radius: 14px; background: #1d1612; color: #fff; font-weight: 550; box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .5); animation: shop-toast-in .4s var(--shop-ease); }
+.shop-toast.is-error { background: #8f1d1d; }
+.shop-toast.is-out { opacity: 0; transform: translateY(8px); transition: opacity .35s, transform .35s; }
+@keyframes shop-toast-in { from { opacity: 0; transform: translateY(14px); } }
+
+/* floating bar (the menu's cart bar): <a class="shop-floatbar"> */
+.shop-floatbar { position: fixed; left: 50%; bottom: calc(var(--shop-tabbar-h) + 1rem); transform: translateX(-50%); z-index: 900; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  width: min(92vw, 520px); padding: .9rem 1.3rem; border-radius: 999px; background: var(--shop-text); color: var(--shop-bg); font-weight: 650; text-decoration: none; box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .55); }
+
+/* app tab bar on phones */
+.shop-tabbar { display: none; }
+@media (max-width: 719px) {
+  :root { --shop-tabbar-h: 64px; }
+  body { padding-bottom: calc(var(--shop-tabbar-h) + env(safe-area-inset-bottom)); }
+  .shop-tabbar { position: fixed; inset: auto 0 0 0; z-index: 950; display: grid; grid-template-columns: repeat(4, 1fr); height: calc(var(--shop-tabbar-h) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom); background: var(--shop-surface); border-top: 1px solid var(--shop-line); }
+  .shop-tabbar a { display: grid; place-items: center; min-height: 48px; color: var(--shop-muted); text-decoration: none; font-size: .8rem; font-weight: 600; }
+  .shop-tabbar a[aria-current="page"] { color: var(--shop-accent); box-shadow: inset 0 3px 0 var(--shop-accent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shop-sheet, .shop-backdrop, .shop-btn, .shop-chip, .shop-toast { transition: none !important; animation: none !important; }
+}

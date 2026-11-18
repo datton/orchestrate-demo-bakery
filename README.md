@@ -1,14 +1,18 @@
-# bakery.demo.orchestrate.ca
+# Hearth & Crumb Bakery
 
-Built live by the Orchestrate Solutions agent team in an Orchestrate demonstration. Static site: HTML, CSS and JavaScript, no build step.
+An order-ahead bakery site built by the Orchestrate Solutions demo team: pick a bakery, order pastries, bread, savoury
+bakes and drinks with their options, pay with a test card, get a pickup number and QR code, follow the order live.
+Static HTML, CSS and JavaScript; payments, pickup numbers, QR codes and gift cards come from Orchestrate's shop
+service at `api/shop/`.
 
-## Structure
-- `index.html`: one page with hero, menu, hours and location, about, contact
-- `css/tokens.css`: colours, fonts, spacing (Designer)
-- `css/layout.css`: header, nav, footer, layout (UI/UX)
-- `css/site.css`: base styles (Lead Developer)
-- `js/nav.js`, `js/app.js`: behaviour
-- `assets/`: original SVG illustrations and icons
+**Demo shop: test payments only. No real money moves.**
 
-## Run locally
-Open `index.html` in a browser.
+## Pages
+`index.html` home · `pages/about.html` · `pages/visit.html` · `pages/menu.html` · `pages/checkout.html` ·
+`pages/order.html` · `pages/counter.html` (staff) · `pages/board.html` (now serving) · `pages/gift-cards.html` ·
+`pages/gift.html` · `pages/account.html`
+
+## Shared code
+`js/shop/core.js` exposes `window.Shop` (API client, menu loader, cart, customer id, money, toasts, sheets).
+`css/shop/core.css` has buttons, chips, steppers, sheets and the phone tab bar. The menu is `shop/catalog.json`;
+prices are only ever calculated by the service.
