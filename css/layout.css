@@ -21,6 +21,8 @@ h1, h2, h3 { line-height: var(--lh-tight); letter-spacing: var(--track-tight); t
 .site-header.is-scrolled { border-color: var(--line); box-shadow: var(--shadow-sm); }
 .site-header-in { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; display: flex; align-items: center; gap: var(--space-4); min-height: 64px; }
 .brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 800; letter-spacing: -.02em; text-decoration: none; color: var(--text); margin-right: auto; }
+.brand > span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.brand { min-width: 0; flex: 0 1 auto; }
 .brand-mark { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 800; }
 .site-nav { display: flex; gap: .25rem; }
 .site-nav a, .nav-cart, .site-footer nav a { position: relative; padding: .6rem .8rem; text-decoration: none; color: var(--text); font-weight: 560; border-radius: var(--radius-pill); }
@@ -112,6 +114,10 @@ main a:not([class]):hover { text-underline-offset: .4em; color: var(--accent); }
 
 /* phone shop ergonomics */
 @media (max-width: 40rem) {
+  .site-header-in { gap: var(--space-2); min-height: 56px; }
+  .brand { font-size: 1.05rem; flex: 1 1 0; }
+  .nav-order { display: none !important; }
+  .nav-cart { padding-inline: .5rem; white-space: nowrap; }
   body { font-size: 1rem; }
   button, [role="button"], select, input { min-height: 44px; }
   .hero { padding-block: var(--space-7); }
