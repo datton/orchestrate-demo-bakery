@@ -17,6 +17,26 @@
   <script src="../js/app.js" defer></script>
   <script src="../js/shop/core.js" defer></script>
   <script src="../js/shop/cart.js" defer></script>
+  <script src="../js/tools.js" defer></script>
+  <style>
+    .cake { display: grid; gap: var(--space-m); max-width: 44rem; }
+    .cake form { display: grid; gap: var(--space-m); background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius-l); padding: var(--space-m); box-shadow: var(--shadow-s); }
+    .cake__row { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+    .cake fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: var(--space-2xs); }
+    .cake legend { font-weight: var(--weight-bold); padding: 0; margin-bottom: var(--space-2xs); }
+    .cake__opt { display: flex; align-items: center; gap: var(--space-xs); min-height: 44px; padding: 0 var(--space-xs); border: 1px solid var(--color-line-strong); border-radius: var(--radius-s); cursor: pointer; }
+    .cake__opt:has(input:checked) { border-color: var(--color-accent); background: var(--color-accent-soft); }
+    .cake__price { margin-left: auto; font-weight: var(--weight-bold); }
+    .cake__total { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-s); font-size: var(--step-1); font-weight: var(--weight-bold); border-top: 1px solid var(--color-line); padding-top: var(--space-s); }
+    .cake__total output { font-size: var(--step-3); font-weight: var(--weight-black); letter-spacing: var(--tracking-display); }
+    .cake__note { color: var(--color-ink-muted); font-size: var(--step--1); }
+    .cake__done { background: var(--color-success-soft); border: 1px solid var(--color-success); border-radius: var(--radius-l); padding: var(--space-m); display: grid; gap: var(--space-xs); }
+    .cake__done h3 { color: var(--color-success); }
+    .cake__done dl { display: grid; grid-template-columns: auto 1fr; gap: var(--space-3xs) var(--space-s); margin: 0; }
+    .cake__done dt { font-weight: var(--weight-bold); } .cake__done dd { margin: 0; }
+    .cake__actions { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+    .cake__saved { display: grid; gap: var(--space-3xs); }
+  </style>
 </head>
 <body data-tab="home">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -109,6 +129,19 @@
           <li><span class="pickup-steps__n">2</span><h3>Find your number</h3><p>At Old Town, ready orders wait on the shelf inside the door, sorted by number. At Riverside, ask at the counter.</p></li>
           <li><span class="pickup-steps__n">3</span><h3>Show your code</h3><p>Show the QR code or say your 4-digit pickup code, and it is yours. A friend can collect it with your pickup link.</p></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="cakes" aria-labelledby="cakes-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Whole cakes</span>
+          <h2 class="mask" id="cakes-title"><span class="mask__line"><span>Order a cake</span></span> <span class="mask__line"><span>for a later day.</span></span></h2>
+          <p class="lead" data-reveal>Whole cakes need a little notice: choose a pickup day at least two days from today, and tell us what to write on top.</p>
+        </div>
+        <div data-tool="cake-order" class="cake">
+          <noscript><p>The cake order form needs JavaScript. You can also ask at the counter.</p></noscript>
+        </div>
       </div>
     </section>
 
