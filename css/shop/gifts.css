@@ -1,0 +1,173 @@
+/* =====================================================================================================================
+   gifts.css: gift cards and "Me" (pages/gift-cards.html, gift.html, account.html). Owner: Senior Developer 4.
+   Reads only css/tokens.css variables; card designs use --gift-<id>-bg / --gift-<id>-ink.
+   ===================================================================================================================== */
+
+/* ---- The gift card ------------------------------------------------------------------------------------------- */
+.gift-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 1.586;           /* a bank card's shape */
+  padding: clamp(1rem, 4vw, 1.6rem);
+  border-radius: var(--radius-l);
+  background: var(--card-bg, var(--gift-default-bg));
+  color: var(--card-ink, var(--gift-default-ink));
+  box-shadow: var(--shadow-l);
+}
+.gift-card::after {      /* a soft sheen, kept inside the card so the card can grow with a long message */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(60% 70% at 85% 0%, currentColor, transparent 70%);
+  opacity: 0.14;
+  pointer-events: none;
+}
+.gift-card__top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-s); font-weight: var(--weight-black); }
+.gift-card__brand { font-size: var(--step-1); letter-spacing: var(--tracking-tight); }
+.gift-card__kind { display: inline-flex; align-items: center; gap: 0.3rem; font-size: var(--step--2); text-transform: uppercase; letter-spacing: var(--tracking-wide); opacity: 0.9; }
+.gift-card__kind .icon { width: 1rem; height: 1rem; }
+.gift-card__line { font-family: var(--font-serif); font-style: italic; font-size: var(--step-0); line-height: 1.25; max-width: 24ch; }
+.gift-card__amount { margin-top: auto; font-size: var(--step-4); font-weight: var(--weight-black); letter-spacing: var(--tracking-display); line-height: 1; font-variant-numeric: tabular-nums; }
+.gift-card__to { font-weight: var(--weight-bold); font-size: var(--step--1); }
+.gift-card__msg { font-size: var(--step--1); opacity: 0.92; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gift-card__code { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.12em; font-weight: var(--weight-bold); }
+@media (prefers-reduced-motion: no-preference) {
+  .gift-card { transition: transform var(--dur-3) var(--ease-out); }
+  .gift-buy__preview:hover .gift-card { transform: rotate(-1.5deg) translateY(-4px); }
+}
+
+/* ---- Buy ------------------------------------------------------------------------------------------------------ */
+.gift-hero { display: grid; gap: var(--space-s); padding-block: var(--space-m) var(--space-l); }
+.gift-hero h1 { font-size: var(--step-5); max-width: 16ch; }
+.gift-buy { display: grid; gap: var(--space-l); align-items: start; margin-bottom: var(--space-xl); }
+.gift-buy__preview { display: grid; justify-items: center; gap: var(--space-s); }
+.gift-buy__preview .gift-card { margin-inline: auto; }
+.gift-buy__fields { display: grid; gap: var(--space-m); }
+.gift-buy__fields legend { font-weight: var(--weight-black); margin-bottom: var(--space-2xs); }
+@media (min-width: 900px) {
+  .gift-buy { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2xl); }
+  .gift-buy__preview { position: sticky; top: calc(var(--header-h) + var(--space-l)); }
+}
+.design-picker { display: grid; grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr)); gap: var(--space-xs); }
+.design-option { position: relative; display: grid; gap: var(--space-3xs); cursor: pointer; font-weight: var(--weight-semibold); font-size: var(--step--1); }
+.design-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.design-option__swatch {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1.586;
+  border-radius: var(--radius-s);
+  background: var(--card-bg, var(--gift-default-bg));
+  color: var(--card-ink, var(--gift-default-ink));
+  box-shadow: var(--shadow-s);
+  transition: transform var(--dur-1) var(--ease-out);
+}
+.design-option:hover .design-option__swatch { transform: translateY(-2px); }
+.design-option:has(input:checked) .design-option__swatch { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+.design-option:has(input:focus-visible) .design-option__swatch { outline: 3px solid var(--color-focus); outline-offset: 4px; }
+.gift-amount-custom { margin-top: var(--space-xs); max-width: 16rem; }
+.co-pay { display: flex; gap: var(--space-2xs); align-items: flex-start; padding: var(--space-s); border-radius: var(--radius-m); background: var(--color-surface-2); font-size: var(--step--1); }
+.co-pay .icon { flex-shrink: 0; margin-top: 2px; color: var(--color-accent-ink); }
+[data-gift-error]:empty { display: none; }
+[data-gift-cancelled] { margin-bottom: var(--space-m); }
+
+/* After payment */
+.issued {
+  display: grid;
+  gap: var(--space-l);
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-m);
+}
+.issued:focus { outline: none; }
+.issued__text { display: grid; gap: var(--space-s); }
+.issued__text h2 { font-size: var(--step-4); }
+.issued__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs); }
+.issued__text a { word-break: break-all; }
+@media (min-width: 900px) { .issued { grid-template-columns: 1fr 1fr; } }
+@media (prefers-reduced-motion: no-preference) { .issued .gift-card { animation: card-in var(--dur-4) var(--ease-out); } }
+
+/* Balance check */
+.gift-check { max-width: 40rem; }
+.gift-check__form { display: flex; flex-wrap: wrap; gap: var(--space-2xs); align-items: end; }
+.gift-check__form .field { flex: 1 1 14rem; }
+.gift-check input { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; }
+.balance { display: grid; gap: var(--space-2xs); justify-items: start; margin-top: var(--space-s); }
+.balance__amount { font-size: var(--step-4); font-weight: var(--weight-black); letter-spacing: var(--tracking-display); line-height: 1; }
+
+/* ---- The recipient's page ------------------------------------------------------------------------------------- */
+.gift-view { display: grid; gap: var(--space-xl); align-items: center; padding-block: var(--space-m); }
+.gift-view__text { display: grid; gap: var(--space-s); }
+.gift-view__text h1 { font-size: var(--step-5); }
+.gift-view .gift-card { margin-inline: auto; order: -1; }
+.gift-view__msg { margin: 0; padding-left: var(--space-s); border-left: 3px solid var(--color-accent); font-family: var(--font-serif); font-style: italic; font-size: var(--step-2); line-height: 1.3; }
+.gift-view__msg footer { margin-top: var(--space-2xs); font-family: var(--font-sans); font-style: normal; font-size: var(--step--1); color: var(--color-ink-muted); }
+.gift-view__balance { font-size: var(--step-1); }
+.gift-view__balance strong { font-size: var(--step-3); letter-spacing: var(--tracking-tight); }
+.gift-steps { display: grid; gap: var(--space-2xs); margin: 0; padding-left: 1.3rem; color: var(--color-ink-muted); }
+@media (min-width: 900px) {
+  .gift-view { grid-template-columns: 1.1fr 1fr; gap: var(--space-2xl); min-height: 60vh; }
+  .gift-view .gift-card { order: 2; transform: rotate(-3deg); }
+}
+@media (prefers-reduced-motion: no-preference) { .gift-view .gift-card { animation: card-in var(--dur-4) var(--ease-out); } }
+
+/* ================================================================================================= Me == */
+.account-grid { display: grid; gap: var(--space-m); }
+@media (min-width: 900px) { .account-grid { grid-template-columns: 1fr 1fr; align-items: stretch; } }
+.account-hello h2 { font-size: var(--step-4); }
+.account-hello .row { align-items: end; flex-wrap: nowrap; }
+.account-name { flex: 1; }
+.points-card { gap: var(--space-xs); }
+.points-card .co-label { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-accent-on-dark); font-size: var(--step--1); font-weight: var(--weight-bold); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+.points-card__tier { font-size: var(--step-5); letter-spacing: var(--tracking-display); line-height: 0.95; }
+.points-card__points strong { font-size: var(--step-3); }
+.points-card__reward { display: flex; gap: var(--space-2xs); align-items: flex-start; padding: var(--space-xs) var(--space-s); border-radius: var(--radius-m); background: var(--color-dark-2); }
+.points-card__reward .icon { flex-shrink: 0; color: var(--color-accent-on-dark); }
+.meter { height: 0.75rem; border-radius: var(--radius-pill); background: var(--color-dark-2); overflow: hidden; }
+.meter__fill { display: block; height: 100%; border-radius: inherit; background: var(--color-accent-on-dark); transform-origin: 0 50%; transform: scaleX(calc(var(--pct, 0) / 100)); }
+@media (prefers-reduced-motion: no-preference) { .meter__fill { animation: meter-in 1.2s var(--ease-out); } }
+
+.usual-row .card { align-items: center; }
+.history { display: grid; gap: var(--space-xs); list-style: none; margin: 0; padding: 0; }
+.history__item { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-s); padding: var(--space-s) var(--space-m); border: 1px solid var(--color-line); border-radius: var(--radius-l); background: var(--color-surface); }
+.history__main { display: grid; gap: 2px; min-width: 0; flex: 1 1 16rem; }
+.history__top { display: flex; align-items: center; gap: var(--space-s); }
+.history__num { font-weight: var(--weight-black); font-size: var(--step-1); letter-spacing: var(--tracking-tight); }
+.history__items { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.history__actions { display: flex; gap: var(--space-2xs); }
+.history .status-dot { font-size: var(--step--1); }
+.history .status-dot:not([class*="is-"]) { color: var(--color-ink-muted); }
+
+.wallet { display: grid; gap: var(--space-xs); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); list-style: none; margin: 0 0 var(--space-s); padding: 0; }
+.wallet-card { display: flex; align-items: center; gap: var(--space-s); padding: var(--space-s); border: 1px solid var(--color-line); border-radius: var(--radius-l); background: var(--color-surface); }
+.wallet-card__art { display: grid; place-items: center; width: 4.4rem; aspect-ratio: 1.586; border-radius: var(--radius-s); background: var(--card-bg, var(--gift-default-bg)); color: var(--card-ink, var(--gift-default-ink)); box-shadow: var(--shadow-s); }
+.wallet-card__main { flex: 1; display: grid; }
+.wallet-card__bal { font-size: var(--step--1); color: var(--color-ink-muted); }
+.wallet-card.is-empty { opacity: 0.6; }
+.wallet-empty { margin-bottom: var(--space-s); }
+.wallet-add { display: flex; flex-wrap: wrap; gap: var(--space-2xs); align-items: end; max-width: 36rem; }
+.wallet-add .field { flex: 1 1 14rem; }
+.wallet-add input { font-family: var(--font-mono); text-transform: uppercase; }
+.wallet-add .field__error { flex-basis: 100%; }
+.wallet-add .field__error:empty { display: none; }
+
+.coupons { display: grid; gap: var(--space-xs); list-style: none; margin: 0 0 var(--space-s); padding: 0; }
+.coupon { display: flex; align-items: center; gap: var(--space-s); padding: var(--space-s); border: 1px dashed var(--color-line-strong); border-radius: var(--radius-l); background: var(--color-surface); }
+.coupon > .icon { color: var(--color-accent-ink); width: 1.5rem; height: 1.5rem; }
+.coupon__main { flex: 1; display: grid; }
+.coupon__code { font-family: var(--font-mono); letter-spacing: 0.06em; }
+.coupon.is-used { opacity: 0.6; }
+.account-forget p { margin-bottom: var(--space-s); }
+
+@keyframes card-in { from { opacity: 0; transform: translateY(24px) rotate(4deg) scale(0.96); filter: blur(6px); } }
+@keyframes meter-in { from { transform: scaleX(0); } }

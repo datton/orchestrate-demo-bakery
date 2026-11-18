@@ -1,0 +1,161 @@
+/* =====================================================================================================================
+   tokens.css: the shop's whole look, as custom properties. Owner: Designer.
+
+   This file replaces the base kit's tokens.css in a shop. Every stylesheet (layout.css, site.css and css/shop/*.css)
+   reads ONLY these variables, so a new palette, type scale or motion feel is a change here and nowhere else.
+
+   Contrast (WCAG AA) on --color-bg and --color-surface: --color-ink 16.7:1, --color-ink-muted 7.4:1,
+   --color-accent-ink 6.5:1, white on --color-accent 6.3:1, --color-on-dark on --color-dark 16.4:1. --color-ink-faint
+   (3.3:1) is for large type only. Gift card designs pair each background with an ink of 4.5:1 or more.
+   ===================================================================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* ---- Colour: warm paper, espresso neutrals and ONE accent (burnt caramel) -------------------------------------- */
+  --color-bg: #fbf7f1;
+  --color-surface: #ffffff;
+  --color-surface-2: #f3ebe0;
+  --color-ink: #1d1612;
+  --color-ink-muted: #5c4f46;
+  --color-ink-faint: #93857a;
+  --color-line: #e9dfd2;
+  --color-line-strong: #cbbcab;
+
+  --color-accent: #a3401b;
+  --color-accent-hover: #873416;
+  --color-on-accent: #ffffff;
+  --color-accent-soft: #f7e5d9;
+  --color-accent-ink: #9a3c19;
+
+  --color-dark: #17110e;
+  --color-dark-2: #251c17;
+  --color-on-dark: #f7efe6;
+  --color-on-dark-muted: #c2b4a6;
+  --color-accent-on-dark: #f3a670;
+  --color-line-dark: #3b2f28;
+
+  --color-success: #1b6a3d;  --color-success-soft: #e2f1e7;
+  --color-warning: #875200;  --color-warning-soft: #fbefd6;
+  --color-danger:  #b42318;  --color-danger-soft:  #fde8e5;
+
+  --color-focus: #a3401b;
+  --color-backdrop: rgb(23 17 14 / 0.52);
+  --color-selection: #f3d3bd;
+
+  --gradient-text: linear-gradient(100deg, var(--color-ink) 15%, var(--color-accent) 50%, var(--color-ink) 85%);
+  --gradient-glow: radial-gradient(55% 45% at 15% 15%, rgb(163 64 27 / 0.16), transparent 70%),
+                   radial-gradient(45% 40% at 85% 25%, rgb(214 148 92 / 0.18), transparent 70%),
+                   radial-gradient(60% 50% at 60% 100%, rgb(163 64 27 / 0.07), transparent 70%);
+
+  /* ---- Shop states ------------------------------------------------------------------------------------------------ */
+  --color-status-received: var(--color-ink);
+  --color-status-making: var(--color-warning);
+  --color-status-making-soft: var(--color-warning-soft);
+  --color-status-ready: var(--color-success);
+  --color-status-ready-soft: var(--color-success-soft);
+  --color-status-done: var(--color-ink-muted);
+  --color-sold-out: var(--color-ink-muted);
+  --color-badge: var(--color-ink);
+  --color-on-badge: var(--color-bg);
+
+  /* ---- Gift card designs (ids match shop/catalog.json giftCards.designs) ------------------------------------------- */
+  --gift-default-bg: linear-gradient(140deg, #a3401b 0%, #5e2410 100%);
+  --gift-default-ink: #fff7f0;
+  --gift-thanks-bg: linear-gradient(140deg, #f7dcc3 0%, #eab184 100%);
+  --gift-thanks-ink: #2b1a10;
+  --gift-birthday-bg: linear-gradient(140deg, #7a1d3a 0%, #b83b62 100%);
+  --gift-birthday-ink: #fff2f5;
+  --gift-congrats-bg: linear-gradient(140deg, #123528 0%, #2c6549 100%);
+  --gift-congrats-ink: #f1f7ec;
+  --gift-break-bg: linear-gradient(140deg, #1d1612 0%, #4a3326 100%);
+  --gift-break-ink: #f7efe6;
+
+  /* ---- Type: system fonts only ------------------------------------------------------------------------------------ */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+
+  --step--2: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+  --step--1: clamp(0.84rem, 0.81rem + 0.15vw, 0.92rem);
+  --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.12rem);
+  --step-1:  clamp(1.18rem, 1.08rem + 0.45vw, 1.45rem);
+  --step-2:  clamp(1.4rem, 1.2rem + 0.9vw, 1.95rem);
+  --step-3:  clamp(1.7rem, 1.35rem + 1.6vw, 2.7rem);
+  --step-4:  clamp(2.05rem, 1.45rem + 2.7vw, 3.7rem);
+  --step-5:  clamp(2.5rem, 1.6rem + 4vw, 5rem);
+  --step-6:  clamp(3rem, 1.7rem + 5.8vw, 6.5rem);
+  --step-7:  clamp(3.6rem, 1.4rem + 9.5vw, 10rem);
+  --step-story: clamp(1.5rem, 1.2rem + 1.2vw, 2.4rem);
+  --step-pickup: clamp(5.5rem, 3rem + 14vw, 11rem);     /* the big pickup number */
+  --step-board: clamp(3.5rem, 1rem + 8vw, 9rem);        /* numbers on the now-serving screen */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  --leading-tight: 1.02;
+  --leading-snug: 1.18;
+  --leading-body: 1.6;
+  --tracking-display: -0.045em;
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.12em;
+
+  /* ---- Space ------------------------------------------------------------------------------------------------------ */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 6.5rem;
+  --section-space: clamp(5rem, 12vw, 10rem);
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+
+  /* ---- Shape ------------------------------------------------------------------------------------------------------ */
+  --radius-xs: 6px;
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 22px;
+  --radius-xl: 30px;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgb(29 22 18 / 0.06);
+  --shadow-s: 0 1px 2px rgb(29 22 18 / 0.05), 0 4px 12px -4px rgb(29 22 18 / 0.12);
+  --shadow-m: 0 2px 4px rgb(29 22 18 / 0.04), 0 14px 32px -12px rgb(29 22 18 / 0.24);
+  --shadow-l: 0 4px 8px rgb(29 22 18 / 0.05), 0 30px 70px -24px rgb(29 22 18 / 0.42);
+  --shadow-glow: 0 12px 36px -12px rgb(163 64 27 / 0.55);
+
+  /* ---- Layout ----------------------------------------------------------------------------------------------------- */
+  --container: 74rem;
+  --container-narrow: 46rem;
+  --container-app: 70rem;    /* app screens on a desktop: centred and comfortable */
+  --measure: 65ch;
+  --header-h: 4rem;
+  --tabbar-h: 4.25rem;
+
+  /* ---- Motion ----------------------------------------------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 160ms;
+  --dur-2: 320ms;
+  --dur-3: 700ms;
+  --dur-4: 900ms;
+  --stagger: 60ms;
+  --marquee-speed: 52s;
+  --rotate-every: 2200ms;
+  --reveal-shift: 28px;
+  --reveal-blur: 8px;
+
+  /* ---- Layers ----------------------------------------------------------------------------------------------------- */
+  --z-header: 50;
+  --z-bar: 55;
+  --z-tabbar: 60;
+  --z-toast: 90;
+  --z-progress: 100;
+}

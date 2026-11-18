@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Visit · Hearth & Crumb Bakery</title>
+  <meta name="description" content="Hearth & Crumb Bakery stores, opening hours and where to pick up your order.">
+  <!-- "JavaScript on" before first paint (reveal effects start hidden instead of flashing), and a page-to-page
+       transition the browser skips is not reported as an error. -->
+  <script>document.documentElement.classList.add('js');addEventListener('pagereveal',function(e){var v=e.viewTransition;if(v){v.ready.catch(function(){});v.finished.catch(function(){});}});</script>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/shop/core.css">
+  <script src="../js/motion.js" defer></script>
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/shop/core.js" defer></script>
+  <script src="../js/shop/cart.js" defer></script>
+</head>
+<body data-tab="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Page shell (UI/UX): the same header on every page. The tab bar on phones is drawn by js/shop/core.js. -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/></svg></span>
+        Hearth & Crumb Bakery
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open the site menu"><span class="nav-toggle__bars"></span></button>
+        <ul class="site-nav__list" id="site-menu">
+          <li><a class="site-nav__link" href="menu.html">Menu</a></li>
+          <li><a class="site-nav__link" href="order.html">Orders</a></li>
+          <li><a class="site-nav__link" href="gift-cards.html">Gift cards</a></li>
+          <li><a class="site-nav__link" href="visit.html">Visit</a></li>
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="account.html">Me</a></li>
+        </ul>
+      </nav>
+      <a class="cart-link" href="checkout.html" data-cart-open>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span>Cart</span><span class="cart-link__count" data-cart-count>0</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero page-hero" aria-labelledby="visit-title">
+      <div class="container hero__inner">
+        <span class="kicker" data-reveal>Visit</span>
+        <h1 class="hero__title" id="visit-title" data-split>Come in, skip the line, say hello.</h1>
+        <p class="lead" data-reveal>Two stores, each with a pickup shelf for orders placed ahead. Open or closed right now is shown on each store.</p>
+      </div>
+    </section>
+
+    <!-- Store details are written here; keep them in step with "stores" in shop/catalog.json, which drives the
+         open-or-closed badge, the store picker and the pickup times at checkout. -->
+    <section class="section section--tight" aria-labelledby="stores-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="stores-title">Our stores</h2>
+        <div class="stores" data-reveal-group>
+          <article class="store-card" aria-labelledby="store-harbour">
+            <div class="store-card__head">
+              <h3 id="store-harbour">Harbour Street</h3>
+              <span data-store-status="harbour"></span>
+            </div>
+            <p class="store-card__area">By the ferry terminal</p>
+            <dl class="hours">
+              <div><dt>Monday to Friday</dt><dd>6:30 am – 7:00 pm</dd></div>
+              <div><dt>Saturday and Sunday</dt><dd>7:30 am – 6:00 pm</dd></div>
+            </dl>
+            <p class="store-card__pickup">Order-ahead pickup: <strong>the shelf by the door</strong>. Most orders take about 4 minutes.</p>
+            <div class="store-card__actions">
+              <a class="btn btn--primary" href="menu.html" data-order-store="harbour">Order ahead from here</a>
+              <a class="btn" href="board.html?store=harbour">Now serving</a>
+            </div>
+          </article>
+          <article class="store-card" aria-labelledby="store-mill">
+            <div class="store-card__head">
+              <h3 id="store-mill">Old Mill</h3>
+              <span data-store-status="mill"></span>
+            </div>
+            <p class="store-card__area">In the old mill yard</p>
+            <dl class="hours">
+              <div><dt>Monday to Saturday</dt><dd>7:00 am – 5:00 pm</dd></div>
+              <div><dt>Sunday</dt><dd>8:00 am – 3:00 pm</dd></div>
+            </dl>
+            <p class="store-card__pickup">Order-ahead pickup: <strong>the counter on the left as you come in</strong>. Most orders take about 6 minutes.</p>
+            <div class="store-card__actions">
+              <a class="btn btn--primary" href="menu.html" data-order-store="mill">Order ahead from here</a>
+              <a class="btn" href="board.html?store=mill">Now serving</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="pickup-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Picking up</span>
+          <h2 class="mask" id="pickup-title"><span class="mask__line"><span>Straight to the shelf,</span></span> <span class="mask__line"><span>never to the back of the line.</span></span></h2>
+        </div>
+        <ol class="pickup-steps" data-reveal-group>
+          <li><span class="pickup-steps__n">1</span><h3>Watch your number</h3><p>Your order page and the screen in store show when it moves from being made to ready.</p></li>
+          <li><span class="pickup-steps__n">2</span><h3>Find your name</h3><p>Ready orders wait on the pickup shelf with your name and pickup number on them.</p></li>
+          <li><span class="pickup-steps__n">3</span><h3>Show your code</h3><p>Show the QR code or say your 4-digit pickup code, and it is yours. A friend can collect it with your pickup link.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="questions-title">
+      <div class="container center">
+        <h2 class="display" id="questions-title" data-parallax>Questions? <span class="serif">Ask us</span> at the counter.</h2>
+        <p class="lead" data-reveal>Allergies, a big order for the office, or just which beans to take home: we are happy to help in person.</p>
+        <p data-reveal><a class="btn btn--primary btn--lg" href="menu.html">Start an order</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><p class="footer-brand">Hearth & Crumb Bakery</p><p>Order ahead. Skip the line.</p></div>
+        <div>
+          <p class="footer-title">Order</p>
+          <ul class="footer-list">
+            <li><a class="link" href="menu.html">Menu</a></li>
+            <li><a class="link" href="gift-cards.html">Gift cards</a></li>
+            <li><a class="link" href="order.html">Your orders</a></li>
+            <li><a class="link" href="account.html">Me</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Visit</p>
+          <ul class="footer-list">
+            <li><a class="link" href="visit.html">Stores and hours</a></li>
+            <li><a class="link" href="about.html">About us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">For our team</p>
+          <ul class="footer-list">
+            <li><a class="link" href="counter.html">Counter</a></li>
+            <li><a class="link" href="board.html">Now serving screen</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="demo-note"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Demo shop: test payments only. No real money moves.</p>
+      <div class="footer-note"><span>&copy; <span data-year>2026</span> Hearth & Crumb Bakery</span><span>bakery.demo.orchestrate.ca</span></div>
+    </div>
+  </footer>
+</body>
+</html>
