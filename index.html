@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baked at dawn, order ahead · Hearth &amp; Crumb Bakery</title>
+<meta name="description" content="Order ahead at Hearth & Crumb Bakery: butter croissants, long-fermented sourdough, cakes and coffee, ready to collect warm.">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/shop/core.css">
+</head>
+<body class="page-home">
+<a class="skip-link" href="#main">Skip to the content</a>
+<header class="site-header" id="site-header"></header>
+<main id="main" class="fs">
+
+<section class="hero hero-dark">
+  <div class="fs-wrap">
+    <p class="fs-eyebrow">Hearth &amp; Crumb Bakery</p>
+    <h1>Baked at dawn. Order ahead, collect warm.</h1>
+    <p class="fs-lead" style="margin-top:1.8rem">Butter folded by hand, bread left to rise overnight, <span data-rotate="cakes for every occasion|ready when you walk in|still warm from the oven">ready when you walk in</span>. Choose your bakery, order, and skip the line.</p>
+    <div class="fs-cta"><a class="fs-btn on-dark" href="pages/menu.html">Order ahead</a><a class="fs-btn ghost" href="pages/visit.html">Find a bakery</a></div>
+  </div>
+</section>
+
+<section class="marquee" aria-hidden="true"><div class="marquee-track"><span>Baked at dawn</span><span>Sourdough</span><span>Butter croissant</span><span>Order ahead</span><span>Collect warm</span></div></section>
+
+<section class="fs-sec"><div class="fs-wrap">
+  <p data-fill>Flour, water, salt and time. Real butter, folded three days. Nothing hurried, nothing from a packet. And when it comes out of the oven, you can already be on your way to collect it.</p>
+</div></section>
+
+<section class="fs-sec fs-soft"><div class="fs-wrap">
+  <p class="fs-eyebrow" data-reveal>Fresh today</p>
+  <h2 data-mask>From the<br>morning bake</h2>
+  <div class="fs-grid" data-featured="croissant:Butter, folded by hand|sourdough:12-year-old starter|cardamom:Glazed while hot|carrotcake:By the slice or whole"></div>
+  <p style="margin-top:2.5rem"><a class="fs-link" href="pages/menu.html"><strong>See the whole menu →</strong></a></p>
+  <noscript><p>Butter croissants, country sourdough, cardamom knots and carrot cake. Open the menu to order.</p></noscript>
+</div></section>
+
+<section data-scrolly aria-label="How ordering works">
+  <div class="scrolly-stage" aria-hidden="true"><div data-scrolly-word>Pick</div></div>
+  <div class="scrolly-steps">
+    <div data-step="Pick">Pick your bakery. Old Town or Riverside, with today’s hours.</div>
+    <div data-step="Order">Order what you like. Pastries, loaves, savoury bakes, cake and coffee.</div>
+    <div data-step="Pay">Pay in a tap. Test payments in this demo shop: no real money moves.</div>
+    <div data-step="Collect">Get your number. A pickup number and a QR code, then collect it warm.</div>
+  </div>
+</section>
+
+<section class="fs-sec fs-dark" style="padding-top:var(--section)"><div class="fs-wrap">
+  <h2 data-mask>The bakery<br>in numbers</h2>
+  <div class="fs-nums">
+    <div class="fs-num" data-reveal><b data-stat="stores" data-count="2">2</b><span>bakeries, one order</span></div>
+    <div class="fs-num" data-reveal><b data-stat="items" data-count="19">19</b><span>things on the menu</span></div>
+    <div class="fs-num" data-reveal><b data-count="3">3</b><span>days of folding for every croissant</span></div>
+    <div class="fs-num" data-reveal><b data-count="12">12</b><span>years our sourdough starter has been alive</span></div>
+  </div>
+</div></section>
+
+<section class="fs-sec" id="cakes"><div class="fs-wrap">
+  <p class="fs-eyebrow" data-reveal>Whole cakes</p>
+  <h2 data-mask>A cake for<br>the occasion</h2>
+  <p class="fs-lead" data-reveal>Choose a size and flavour, add a short message and a pickup day. We need a day’s notice for a whole cake.</p>
+  <form class="fs-form" id="cake-form" novalidate>
+    <label>Your name<input id="cake-name" name="name" autocomplete="name" required aria-describedby="cake-name-err"><span class="fs-err" id="cake-name-err" role="alert"></span></label>
+    <label>Pickup date<input id="cake-date" name="date" type="date" required aria-describedby="cake-date-err"><span class="fs-err" id="cake-date-err" role="alert"></span></label>
+    <label>Size<select name="size"><option value="6">6 inch · serves 6</option><option value="8" selected>8 inch · serves 10</option><option value="10">10 inch · serves 16</option></select></label>
+    <label>Flavour<select name="flavour"><option>Carrot cake</option><option>Lemon drizzle</option><option>Dark chocolate torte</option></select></label>
+    <label>Bakery<select name="store"><option>Old Town</option><option>Riverside</option></select></label>
+    <label>Message on the cake<input id="cake-msg" name="msg" maxlength="60" placeholder="Happy birthday, Sam" aria-describedby="cake-msg-err"><span class="fs-err" id="cake-msg-err" role="alert"></span></label>
+    <p class="fs-est full" id="cake-est" aria-live="polite"></p>
+    <div class="full"><button class="fs-btn" type="submit">Request this cake</button></div>
+  </form>
+  <div id="cake-out" tabindex="-1" role="status" hidden></div>
+  <p class="fs-demo">Sample form and sample prices. Nothing is sent: your request stays in this browser.</p>
+</div></section>
+
+<section class="fs-sec fs-soft"><div class="fs-wrap fs-gift">
+  <div>
+    <p class="fs-eyebrow" data-reveal>Gift cards</p>
+    <h2 data-mask>Something warm<br>from the oven</h2>
+    <p class="fs-lead" data-reveal>Pick a design, add a message and send a link. They spend it at checkout in either bakery.</p>
+    <ul class="fs-amounts" aria-label="Popular amounts"><li>$10</li><li>$25</li><li>$50</li><li>$100</li></ul>
+    <div class="fs-cta"><a class="fs-btn" href="pages/gift-cards.html">Send a gift card</a></div>
+  </div>
+  <div aria-hidden="true"><div class="fs-giftcard" data-parallax=".05"><span>Hearth &amp; Crumb Bakery</span><strong>Something warm from the oven</strong><span>Gift card</span></div></div>
+</div></section>
+
+<section class="fs-sec fs-dark"><div class="fs-wrap">
+  <p class="fs-eyebrow" data-reveal>Our bakeries</p>
+  <h2 data-mask>Two ovens,<br>one order</h2>
+  <div class="fs-stores" data-stores="short"></div>
+  <p style="margin-top:2rem"><a class="fs-link" href="pages/visit.html">Hours and pickup details →</a></p>
+  <p class="fs-demo">Demo shop: test payments only. No real money moves.</p>
+</div></section>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script src="js/nav.js" defer></script>
+<script src="js/motion.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/shop/core.js" defer></script>
+<script src="js/shop/cart.js" defer></script>
+</body>
+</html>
