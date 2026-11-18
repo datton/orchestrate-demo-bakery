@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu · Hearth &amp; Crumb Bakery</title>
+<meta name="description" content="Order ahead at Hearth &amp; Crumb Bakery: pastries, bread, savoury, cakes and drinks, baked fresh each morning.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/menu.css">
+<style>@view-transition { navigation: auto; }</style>
+</head>
+<body class="menu-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><nav aria-label="Main"><a class="brand" href="../index.html">Hearth &amp; Crumb Bakery</a>
+<a href="menu.html" aria-current="page">Menu</a><a href="gift-cards.html">Gift cards</a><a href="account.html">Me</a></nav></header>
+<main id="main" class="menu">
+  <section class="menu-head">
+    <p class="menu-eyebrow">Order ahead, skip the line</p>
+    <h1>The menu</h1>
+    <div class="menu-tools">
+      <button type="button" class="menu-store" id="store-btn" aria-haspopup="dialog">
+        <span class="menu-store-label">Picking up from</span>
+        <strong id="store-name">Choose a store</strong>
+        <span class="menu-store-state" id="store-state"></span>
+      </button>
+      <label class="menu-search"><span class="shop-vh">Search the menu</span>
+        <input type="search" id="menu-search" placeholder="Search the menu" autocomplete="off"></label>
+    </div>
+  </section>
+  <nav class="menu-rail" id="menu-rail" aria-label="Menu categories"></nav>
+  <div id="menu-root" class="menu-root" aria-live="polite">
+    <p class="menu-note">Loading the menu…</p>
+    <noscript><p>Ordering needs JavaScript. Come and see us in store.</p></noscript>
+  </div>
+  <p class="menu-foot shop-demo-label">Prices in CAD. The final price is confirmed at checkout. Demo shop: test payments only. No real money moves.</p>
+</main>
+<footer class="site-footer"><p>Demo shop: test payments only. No real money moves.</p></footer>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/shop/menu.js" defer></script>
+</body>
+</html>

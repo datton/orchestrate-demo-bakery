@@ -1,0 +1,68 @@
+/* Menu page. Colours only through the --shop-* / token variables. */
+.menu { width: min(1120px, 100% - 2rem); margin-inline: auto; padding-block: clamp(2rem, 6vw, 4rem) 8rem; }
+.menu-head h1 { font-size: clamp(2.6rem, 8vw, 5.5rem); letter-spacing: -.03em; line-height: 1; margin: .2em 0 .5em; }
+.menu-eyebrow { margin: 0; color: var(--shop-accent); font-weight: 650; letter-spacing: .08em; text-transform: uppercase; font-size: .85rem; }
+.menu-tools { display: flex; flex-wrap: wrap; gap: .75rem; align-items: stretch; }
+.menu-store { flex: 1 1 280px; display: grid; gap: .1rem; text-align: left; padding: .8rem 1.1rem; border: 1.5px solid var(--shop-line); border-radius: var(--shop-radius);
+  background: var(--shop-surface); color: var(--shop-text); font: inherit; cursor: pointer; transition: transform .3s var(--shop-ease), border-color .2s; }
+.menu-store:hover { border-color: var(--shop-accent); transform: translateY(-2px); }
+.menu-store:focus-visible, .menu-card-main:focus-visible, .menu-add:focus-visible, .store-opt:focus-visible, .menu-search input:focus-visible,
+.menu-rail a:focus-visible { outline: 3px solid var(--shop-text); outline-offset: 2px; }
+.menu-store-label { font-size: .8rem; color: var(--shop-muted); }
+.menu-store strong { font-size: 1.15rem; }
+.menu-store-state { font-size: .85rem; font-weight: 600; }
+.menu-store-state.is-open { color: #1c6b3a; }
+.menu-store-state.is-closed { color: #9a3a1f; }
+.menu-search { flex: 1 1 240px; display: flex; }
+.menu-search input { width: 100%; padding: 0 1.1rem; min-height: 56px; border: 1.5px solid var(--shop-line); border-radius: var(--shop-radius); background: var(--shop-surface); color: var(--shop-text); font: inherit; }
+
+.menu-rail { position: sticky; top: 0; z-index: 20; display: flex; gap: .5rem; overflow-x: auto; padding: .75rem 0; margin-block: 1.25rem 0; scrollbar-width: none;
+  background: color-mix(in srgb, var(--shop-bg) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--shop-line); }
+.menu-rail::-webkit-scrollbar { display: none; }
+.menu-rail a { flex: none; padding: .55rem 1rem; min-height: 44px; display: inline-flex; align-items: center; border-radius: 999px; color: var(--shop-text); text-decoration: none; font-weight: 600; border: 1.5px solid var(--shop-line); transition: background .25s, color .25s; }
+.menu-rail a:hover { border-color: var(--shop-accent); }
+.menu-rail a[aria-current="true"] { background: var(--shop-accent); border-color: var(--shop-accent); color: var(--shop-accent-ink); }
+
+.menu-cat { padding-top: clamp(2rem, 5vw, 3.5rem); scroll-margin-top: 4.5rem; }
+.menu-cat h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); letter-spacing: -.02em; margin: 0 0 .2em; }
+.menu-grid { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.menu-card { display: flex; flex-direction: column; justify-content: space-between; background: var(--shop-surface); border: 1px solid var(--shop-line); border-radius: var(--shop-radius);
+  box-shadow: 0 8px 28px -18px rgba(0, 0, 0, .3); transition: transform .35s var(--shop-ease), box-shadow .35s; }
+.menu-card:hover { transform: translateY(-3px); box-shadow: 0 18px 36px -18px rgba(0, 0, 0, .35); }
+.menu-card-main { display: grid; gap: .45rem; align-content: start; text-align: left; padding: 1.1rem 1.25rem .5rem; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; border-radius: var(--shop-radius) var(--shop-radius) 0 0; }
+.menu-card-badges { display: flex; gap: .4rem; flex-wrap: wrap; min-height: 1.4rem; }
+.menu-card-name { font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; }
+.menu-card-desc { color: var(--shop-muted); line-height: 1.45; }
+.menu-card-meta { font-size: .8rem; color: var(--shop-muted); }
+.menu-card-foot { display: flex; align-items: center; justify-content: space-between; padding: .5rem 1.25rem 1.1rem; }
+.menu-card-price { font-size: 1.2rem; }
+.menu-add { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--shop-accent); color: var(--shop-accent-ink); font-size: 1.7rem; line-height: 1; cursor: pointer; transition: transform .25s var(--shop-ease); }
+.menu-add:hover { transform: scale(1.1) rotate(90deg); }
+.menu-add:active { transform: scale(.95); }
+.menu-add[disabled] { background: var(--shop-line); color: var(--shop-muted); cursor: not-allowed; transform: none; }
+.menu-card.is-soldout { opacity: .6; filter: grayscale(.8); }
+.menu-card.is-soldout:hover { transform: none; box-shadow: 0 8px 28px -18px rgba(0, 0, 0, .3); }
+.menu-card.is-soldout .menu-card-main { cursor: not-allowed; }
+.menu-sold { background: var(--shop-text); color: var(--shop-bg); }
+.menu-note { padding: 2rem 0; color: var(--shop-muted); }
+.menu-foot { margin-top: 3rem; }
+
+/* store picker */
+.store-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.store-opt { display: grid; gap: .25rem; width: 100%; text-align: left; padding: 1rem 1.1rem; border: 1.5px solid var(--shop-line); border-radius: var(--shop-radius); background: var(--shop-surface); color: var(--shop-text); font: inherit; cursor: pointer; transition: border-color .2s, transform .3s var(--shop-ease); }
+.store-opt:hover { border-color: var(--shop-accent); transform: translateY(-2px); }
+.store-opt.is-on { border-color: var(--shop-accent); box-shadow: inset 0 0 0 1px var(--shop-accent); }
+.store-opt-top { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 1.1rem; }
+
+/* options sheet */
+.opt-group { border: 0; padding: 0; margin: 1.2rem 0 0; }
+.opt-group legend { font-weight: 700; margin-bottom: .55rem; padding: 0; }
+.opt-price { font-variant-numeric: tabular-nums; opacity: .8; }
+.opt-allergens { font-size: .9rem; }
+.opt-note input { padding: .75rem 1rem; min-height: 48px; border: 1.5px solid var(--shop-line); border-radius: 12px; background: var(--shop-surface); color: var(--shop-text); font: inherit; }
+.opt-foot { position: sticky; bottom: -1.5rem; display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 1rem 0 .25rem; margin-top: 1rem; background: var(--shop-bg); }
+.opt-addbtn { flex: 1; }
+.opt-est { font-size: .8rem; margin: .5rem 0 0; }
+
+@media (max-width: 719px) { .menu { padding-bottom: 10rem; } }
+@media (prefers-reduced-motion: reduce) { .menu-card, .menu-add, .menu-store, .store-opt { transition: none !important; } .menu-card:hover, .menu-add:hover { transform: none; } }

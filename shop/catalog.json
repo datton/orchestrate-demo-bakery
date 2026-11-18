@@ -1,0 +1,636 @@
+{
+  "brand": {
+    "name": "Hearth & Crumb Bakery",
+    "short": "Hearth & Crumb",
+    "kind": "bakery",
+    "tagline": "Baked at dawn. Order ahead, collect warm."
+  },
+  "currency": "CAD",
+  "timezone": "America/Vancouver",
+  "demo": true,
+  "stores": [
+    {
+      "id": "oldtown",
+      "name": "Old Town",
+      "area": "By the market square",
+      "distanceKm": 0.6,
+      "prepMinutes": 5,
+      "hours": [
+        {
+          "days": "Mon–Fri",
+          "open": "07:00",
+          "close": "17:00"
+        },
+        {
+          "days": "Sat–Sun",
+          "open": "08:00",
+          "close": "15:00"
+        }
+      ],
+      "pickup": "Collect at the counter by the oven"
+    },
+    {
+      "id": "riverside",
+      "name": "Riverside",
+      "area": "On the river path",
+      "distanceKm": 2.4,
+      "prepMinutes": 6,
+      "hours": [
+        {
+          "days": "Mon–Fri",
+          "open": "07:30",
+          "close": "16:30"
+        },
+        {
+          "days": "Sat–Sun",
+          "open": "08:30",
+          "close": "14:30"
+        }
+      ],
+      "pickup": "Pickup window facing the path"
+    }
+  ],
+  "categories": [
+    {
+      "id": "pastries",
+      "name": "Pastries",
+      "blurb": "Laminated and rolled by hand each morning"
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "blurb": "Long-fermented loaves, sliced or whole"
+    },
+    {
+      "id": "savoury",
+      "name": "Savoury",
+      "blurb": "Warmed on request"
+    },
+    {
+      "id": "cakes",
+      "name": "Cakes",
+      "blurb": "By the slice, or a whole cake with a day's notice"
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "blurb": "Coffee, chai, chocolate and tea"
+    }
+  ],
+  "options": {
+    "warm": {
+      "name": "Warmed up",
+      "type": "one",
+      "required": true,
+      "choices": [
+        {
+          "id": "no",
+          "name": "As it comes",
+          "price": 0,
+          "default": true
+        },
+        {
+          "id": "yes",
+          "name": "Warmed in the oven",
+          "price": 0
+        }
+      ]
+    },
+    "slicing": {
+      "name": "Sliced or whole",
+      "type": "one",
+      "required": true,
+      "choices": [
+        {
+          "id": "whole",
+          "name": "Whole loaf",
+          "price": 0,
+          "default": true
+        },
+        {
+          "id": "sliced",
+          "name": "Sliced",
+          "price": 0
+        }
+      ]
+    },
+    "cakesize": {
+      "name": "Slice or whole cake",
+      "type": "one",
+      "required": true,
+      "choices": [
+        {
+          "id": "slice",
+          "name": "One slice",
+          "price": 0,
+          "default": true
+        },
+        {
+          "id": "whole",
+          "name": "Whole cake, serves 8–10 (a day ahead)",
+          "price": 3200
+        }
+      ]
+    },
+    "tortsize": {
+      "name": "Slice or whole cake",
+      "type": "one",
+      "required": true,
+      "choices": [
+        {
+          "id": "slice",
+          "name": "One slice",
+          "price": 0,
+          "default": true
+        },
+        {
+          "id": "whole",
+          "name": "Whole cake, serves 8–10 (a day ahead)",
+          "price": 3800
+        }
+      ]
+    },
+    "size": {
+      "name": "Size",
+      "type": "one",
+      "required": true,
+      "choices": [
+        {
+          "id": "s",
+          "name": "Small 8 oz",
+          "price": -40
+        },
+        {
+          "id": "m",
+          "name": "Medium 12 oz",
+          "price": 0,
+          "default": true
+        },
+        {
+          "id": "l",
+          "name": "Large 16 oz",
+          "price": 50
+        }
+      ]
+    },
+    "milk": {
+      "name": "Milk",
+      "type": "one",
+      "required": true,
+      "choices": [
+        {
+          "id": "whole",
+          "name": "Whole milk",
+          "price": 0,
+          "default": true
+        },
+        {
+          "id": "oat",
+          "name": "Oat milk",
+          "price": 70
+        },
+        {
+          "id": "soy",
+          "name": "Soy milk",
+          "price": 70
+        },
+        {
+          "id": "almond",
+          "name": "Almond milk",
+          "price": 70,
+          "soldOut": true
+        }
+      ]
+    },
+    "teakind": {
+      "name": "Tea",
+      "type": "one",
+      "required": true,
+      "choices": [
+        {
+          "id": "breakfast",
+          "name": "English breakfast",
+          "price": 0,
+          "default": true
+        },
+        {
+          "id": "earlgrey",
+          "name": "Earl Grey",
+          "price": 0
+        },
+        {
+          "id": "mint",
+          "name": "Peppermint",
+          "price": 0
+        },
+        {
+          "id": "chamomile",
+          "name": "Chamomile",
+          "price": 0
+        }
+      ]
+    },
+    "spread": {
+      "name": "On the side",
+      "type": "many",
+      "required": false,
+      "max": 2,
+      "choices": [
+        {
+          "id": "butter",
+          "name": "Cultured butter",
+          "price": 80
+        },
+        {
+          "id": "jam",
+          "name": "Seasonal jam",
+          "price": 80
+        },
+        {
+          "id": "honey",
+          "name": "Local honey",
+          "price": 90
+        }
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "croissant",
+      "name": "Butter Croissant",
+      "category": "pastries",
+      "price": 395,
+      "options": [
+        "warm"
+      ],
+      "desc": "Three days of folding with real butter: crisp shell, open honeycomb inside.",
+      "tags": [
+        "popular"
+      ],
+      "badge": "Most ordered",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs"
+      ],
+      "kcal": 270
+    },
+    {
+      "id": "painchoc",
+      "name": "Pain au Chocolat",
+      "category": "pastries",
+      "price": 445,
+      "options": [
+        "warm"
+      ],
+      "desc": "The same butter dough around two bars of dark chocolate.",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs",
+        "soy"
+      ],
+      "kcal": 320
+    },
+    {
+      "id": "almondcroi",
+      "name": "Almond Croissant",
+      "category": "pastries",
+      "price": 495,
+      "options": [
+        "warm"
+      ],
+      "desc": "Yesterday's croissant filled with almond cream, baked again and dusted with sliced almonds.",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs",
+        "tree nuts"
+      ],
+      "kcal": 420
+    },
+    {
+      "id": "cardamom",
+      "name": "Cardamom Knot",
+      "category": "pastries",
+      "price": 425,
+      "options": [
+        "warm"
+      ],
+      "desc": "Enriched dough twisted with cardamom and sugar, glazed while hot.",
+      "tags": [
+        "new"
+      ],
+      "badge": "New",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs"
+      ],
+      "kcal": 330
+    },
+    {
+      "id": "cinnamon",
+      "name": "Cinnamon Bun",
+      "category": "pastries",
+      "price": 445,
+      "options": [
+        "warm"
+      ],
+      "desc": "Soft and sticky, rolled with brown sugar and cinnamon, finished with cream cheese icing.",
+      "tags": [
+        "popular"
+      ],
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs"
+      ],
+      "kcal": 420
+    },
+    {
+      "id": "sourdough",
+      "name": "Country Sourdough",
+      "category": "bread",
+      "price": 850,
+      "options": [
+        "slicing",
+        "spread"
+      ],
+      "desc": "Our 12-year-old starter, an overnight rise and a dark, blistered crust.",
+      "tags": [
+        "popular"
+      ],
+      "badge": "Daily loaf",
+      "allergens": [
+        "gluten"
+      ],
+      "kcal": 1100
+    },
+    {
+      "id": "seededrye",
+      "name": "Seeded Rye",
+      "category": "bread",
+      "price": 925,
+      "options": [
+        "slicing",
+        "spread"
+      ],
+      "desc": "Dense and tangy rye packed with sunflower, flax and pumpkin seeds.",
+      "allergens": [
+        "gluten",
+        "sesame"
+      ],
+      "kcal": 1250
+    },
+    {
+      "id": "baguette",
+      "name": "Baguette",
+      "category": "bread",
+      "price": 475,
+      "options": [
+        "slicing"
+      ],
+      "desc": "Thin, crackling crust and a chewy, open crumb. Best eaten the day it is baked.",
+      "allergens": [
+        "gluten"
+      ],
+      "kcal": 520
+    },
+    {
+      "id": "focaccia",
+      "name": "Rosemary Focaccia",
+      "category": "bread",
+      "price": 650,
+      "options": [
+        "slicing"
+      ],
+      "desc": "Olive oil, flaky salt and fresh rosemary on a dimpled, tender loaf.",
+      "allergens": [
+        "gluten"
+      ],
+      "kcal": 780,
+      "soldOut": true
+    },
+    {
+      "id": "hamcroi",
+      "name": "Ham and Gruyère Croissant",
+      "category": "savoury",
+      "price": 650,
+      "options": [
+        "warm"
+      ],
+      "desc": "Butter croissant filled with sliced ham and melted gruyère.",
+      "tags": [
+        "popular"
+      ],
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs"
+      ],
+      "kcal": 480
+    },
+    {
+      "id": "spinachroll",
+      "name": "Spinach and Feta Roll",
+      "category": "savoury",
+      "price": 595,
+      "options": [
+        "warm"
+      ],
+      "desc": "Flaky pastry rolled around spinach, feta and a little nutmeg. Vegetarian.",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs"
+      ],
+      "kcal": 390
+    },
+    {
+      "id": "quiche",
+      "name": "Quiche of the Day",
+      "category": "savoury",
+      "price": 725,
+      "options": [
+        "warm"
+      ],
+      "desc": "A wedge of egg custard in a butter crust. Ask at the counter which filling is in today.",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs"
+      ],
+      "kcal": 450
+    },
+    {
+      "id": "carrotcake",
+      "name": "Carrot Cake",
+      "category": "cakes",
+      "price": 495,
+      "options": [
+        "cakesize"
+      ],
+      "desc": "Spiced carrot sponge with walnuts, layered with cream cheese frosting.",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs",
+        "tree nuts"
+      ],
+      "kcal": 520,
+      "notice": "Whole cakes need a day's notice: choose a pickup time at least 24 hours ahead."
+    },
+    {
+      "id": "lemoncake",
+      "name": "Lemon Drizzle",
+      "category": "cakes",
+      "price": 450,
+      "options": [
+        "cakesize"
+      ],
+      "desc": "Moist lemon loaf cake soaked in a sharp lemon syrup.",
+      "allergens": [
+        "gluten",
+        "milk",
+        "eggs"
+      ],
+      "kcal": 410,
+      "notice": "Whole cakes need a day's notice: choose a pickup time at least 24 hours ahead."
+    },
+    {
+      "id": "torte",
+      "name": "Dark Chocolate Torte",
+      "category": "cakes",
+      "price": 550,
+      "options": [
+        "tortsize"
+      ],
+      "desc": "Dense and fudgy, made with 70% chocolate and no flour. Gluten-free ingredients, baked in a kitchen that handles wheat.",
+      "allergens": [
+        "milk",
+        "eggs"
+      ],
+      "kcal": 480,
+      "notice": "Whole cakes need a day's notice: choose a pickup time at least 24 hours ahead."
+    },
+    {
+      "id": "coffee",
+      "name": "Drip Coffee",
+      "category": "drinks",
+      "price": 325,
+      "options": [
+        "size",
+        "milk"
+      ],
+      "desc": "Medium-roast house blend, brewed fresh through the morning.",
+      "allergens": [],
+      "kcal": 5
+    },
+    {
+      "id": "chai",
+      "name": "Chai Latte",
+      "category": "drinks",
+      "price": 495,
+      "options": [
+        "size",
+        "milk"
+      ],
+      "desc": "Spiced black tea with steamed milk. Contains caffeine.",
+      "allergens": [
+        "milk"
+      ],
+      "kcal": 210
+    },
+    {
+      "id": "hotchoc",
+      "name": "Hot Chocolate",
+      "category": "drinks",
+      "price": 475,
+      "options": [
+        "size",
+        "milk"
+      ],
+      "desc": "Dark chocolate melted into steamed milk. No coffee.",
+      "allergens": [
+        "milk"
+      ],
+      "kcal": 290
+    },
+    {
+      "id": "tea",
+      "name": "Pot of Tea",
+      "category": "drinks",
+      "price": 375,
+      "options": [
+        "teakind"
+      ],
+      "desc": "Loose-leaf tea in a small pot, enough for two cups.",
+      "allergens": [],
+      "kcal": 0
+    }
+  ],
+  "coupons": [
+    {
+      "code": "WELCOME",
+      "name": "Half off your first pastry or drink",
+      "type": "percent",
+      "value": 50,
+      "appliesTo": "one_item",
+      "maxDiscount": 400,
+      "firstOrderOnly": true
+    },
+    {
+      "code": "TREAT2",
+      "name": "$2 off orders of $15",
+      "type": "amount",
+      "value": 200,
+      "minSubtotal": 1500
+    },
+    {
+      "code": "LOAF10",
+      "name": "10% off orders of $20",
+      "type": "percent",
+      "value": 10,
+      "minSubtotal": 2000,
+      "maxDiscount": 500
+    }
+  ],
+  "giftCards": {
+    "amounts": [
+      1000,
+      2500,
+      5000,
+      10000
+    ],
+    "min": 500,
+    "max": 50000,
+    "designs": [
+      {
+        "id": "thanks",
+        "name": "Thank you",
+        "line": "Something warm from the oven"
+      },
+      {
+        "id": "birthday",
+        "name": "Birthday",
+        "line": "A cake and a coffee on us"
+      },
+      {
+        "id": "welcome",
+        "name": "Welcome home",
+        "line": "Fresh bread for your new kitchen"
+      },
+      {
+        "id": "congrats",
+        "name": "Congratulations",
+        "line": "Well done, have a treat"
+      }
+    ]
+  },
+  "loyalty": {
+    "pointsPerDollar": 1,
+    "rewardAt": 100,
+    "reward": "a free pastry of your choice"
+  }
+}
