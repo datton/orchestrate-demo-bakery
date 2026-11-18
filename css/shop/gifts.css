@@ -1,0 +1,61 @@
+/* Gift cards, recipient page and Me. Colours only from tokens (via --shop-* in core.css). */
+.gc { width: min(100% - 2rem, 1080px); margin-inline: auto; padding-block: clamp(2rem, 6vw, 4rem) clamp(3rem, 8vw, 6rem); }
+.gc-title { font-size: clamp(2.4rem, 7vw, 4.5rem); letter-spacing: -.03em; line-height: 1.02; margin: 0 0 .6rem; }
+.gc-lede { max-width: 60ch; font-size: 1.15rem; color: var(--shop-muted); margin-bottom: 2rem; }
+.gc h2, .gc .shop-card h2 { font-size: clamp(1.4rem, 3vw, 2rem) !important; letter-spacing: -.02em; margin: 0 0 .8rem; }
+.gc fieldset { border: 0; padding: 0; margin: 0 0 1.4rem; min-width: 0; }
+.gc legend { font-weight: 700; font-size: 1.05rem; margin-bottom: .7rem; padding: 0; }
+.gc-grid { display: grid; gap: 1.5rem; align-items: start; }
+@media (min-width: 900px) { .gc-grid { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; } .gc-side { position: sticky; top: 5rem; } }
+.gc-form { padding: 1.4rem; }
+.gc-prev-h { font-size: 1rem !important; text-transform: uppercase; letter-spacing: .08em; color: var(--shop-muted); }
+.gc-error { color: #b42318; font-weight: 600; }
+.gc-error[hidden] { display: none; }
+.gc-inline { display: flex; flex-wrap: wrap; gap: .75rem; align-items: end; }
+.gc-inline .shop-field { flex: 1 1 14rem; margin-block: 0; }
+.gc-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-block: 1rem; }
+.gc-balance { margin-top: 3rem; }
+
+/* the card */
+.gc-card { position: relative; aspect-ratio: 1.6; max-width: 440px; display: flex; flex-direction: column; justify-content: space-between; padding: 1.3rem 1.5rem; border-radius: 22px; color: #fff; overflow: hidden;
+  background: linear-gradient(135deg, var(--shop-accent), color-mix(in srgb, var(--shop-accent) 45%, #111)); box-shadow: 0 26px 50px -26px rgba(0, 0, 0, .6); transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+.gc-card::after { content: ""; position: absolute; width: 70%; aspect-ratio: 1; right: -20%; top: -35%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 255, 255, .28), transparent); pointer-events: none; }
+.gc-card:hover { transform: translateY(-4px) rotate(-.6deg); }
+.gc-d-birthday { background: linear-gradient(135deg, color-mix(in srgb, var(--shop-accent) 70%, #f5a623), color-mix(in srgb, var(--shop-accent) 50%, #3b0d3b)); }
+.gc-d-morning { background: linear-gradient(135deg, color-mix(in srgb, var(--shop-accent) 55%, #f7c873), color-mix(in srgb, var(--shop-accent) 70%, #1c1008)); }
+.gc-d-welcome { background: linear-gradient(135deg, color-mix(in srgb, var(--shop-accent) 50%, #e8c98a), color-mix(in srgb, var(--shop-accent) 65%, #2a1a0c)); }
+.gc-d-congrats { background: linear-gradient(135deg, color-mix(in srgb, var(--shop-accent) 40%, #0e3b2e), #111); }
+.gc-card-top, .gc-card-who { display: flex; justify-content: space-between; gap: 1rem; font-size: .85rem; font-weight: 650; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); }
+.gc-card-kind { opacity: .85; text-transform: uppercase; letter-spacing: .1em; font-size: .72rem; }
+.gc-card-amt { font-size: clamp(2.4rem, 8vw, 3.6rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; text-shadow: 0 2px 10px rgba(0, 0, 0, .3); }
+.gc-card-line { font-size: .95rem; opacity: .95; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); }
+.gc-msg { margin: 1.2rem 0; padding: .9rem 1.2rem; border-left: 4px solid var(--shop-accent); background: var(--shop-surface); border-radius: 0 14px 14px 0; font-style: italic; overflow-wrap: anywhere; white-space: pre-wrap; max-width: 440px; }
+.gc-msg--big { font-size: clamp(1.2rem, 3vw, 1.7rem); max-width: 60ch; line-height: 1.4; }
+
+/* issued, recipient */
+.gc .gc-done h2 { font-size: clamp(1.8rem, 5vw, 3rem) !important; }
+.gc-facts { display: flex; flex-wrap: wrap; gap: 2rem; margin: 1.2rem 0; }
+.gc-facts dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--shop-muted); }
+.gc-facts dd { margin: 0; font-size: 1.5rem; font-weight: 700; }
+.gc-code { font-family: ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .08em; overflow-wrap: anywhere; }
+.gc-balbox { display: grid; gap: .2rem; max-width: 440px; }
+.gc-bal-n { font-size: 2.4rem; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+
+/* Me */
+.acct-sec { margin-top: clamp(2rem, 5vw, 3.2rem); }
+.acct-hello { max-width: 520px; }
+.acct-tier { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; }
+.acct-pts-n { font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.acct-bar { height: 12px; border-radius: 99px; background: var(--shop-line); overflow: hidden; margin-block: 1rem .8rem; }
+.acct-bar span { display: block; height: 100%; background: var(--shop-accent); border-radius: inherit; transition: width .9s cubic-bezier(.2, .7, .2, 1); }
+.acct-wallet { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); margin-block: 1rem 1.4rem; }
+.acct-gift .gc-card { max-width: none; padding: 1rem 1.2rem; }
+.acct-gift .gc-card-amt { font-size: 2.2rem; }
+.acct-coupons, .acct-orders { list-style: none; padding: 0; margin: 0; display: grid; gap: .9rem; }
+.acct-coupons { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.acct-coupons li { display: grid; gap: .4rem; align-content: start; }
+.acct-coupons li.is-used { opacity: .55; }
+.acct-coupons code { justify-self: start; padding: .15rem .6rem; border: 1.5px dashed var(--shop-accent); border-radius: 8px; font-weight: 700; letter-spacing: .06em; }
+.acct-o-top { display: flex; justify-content: space-between; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.acct-orders p { margin: .3rem 0; }
+@media (prefers-reduced-motion: reduce) { .gc-card, .acct-bar span { transition: none !important; } .gc-card:hover { transform: none; } }

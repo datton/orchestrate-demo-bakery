@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gift cards · Hearth &amp; Crumb Bakery</title>
+<meta name="description" content="Buy a Second Shot gift card, add a message and send it with a link.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/gifts.css">
+<style>@view-transition { navigation: auto; }</style>
+</head>
+<body class="gift-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><nav aria-label="Main"><a class="brand" href="../index.html">Hearth &amp; Crumb Bakery</a>
+<a href="menu.html">Menu</a><a href="gift-cards.html">Gift cards</a><a href="account.html">Me</a></nav></header>
+<main id="main" class="gc">
+  <h1 class="gc-title">Gift cards</h1>
+  <p class="gc-lede">send something warm from the oven. It arrives as a link, and works at both bakeries and when ordering ahead.</p>
+  <div id="gc-root" aria-live="polite">
+    <noscript><p>Gift cards need JavaScript to be bought here.</p></noscript>
+    <p class="shop-muted">Loading…</p>
+  </div>
+  <section class="gc-balance shop-card" aria-labelledby="bal-h">
+    <h2 id="bal-h">Check a balance</h2>
+    <form id="bal-form" class="gc-inline" novalidate>
+      <div class="shop-field"><label for="bal-code">Gift card code</label><input id="bal-code" autocomplete="off" autocapitalize="characters" placeholder="Enter the code"></div>
+      <button class="shop-btn" type="submit">Check</button>
+    </form>
+    <div id="bal-out" aria-live="polite"></div>
+  </section>
+</main>
+<footer class="site-footer"><p>Demo shop: test payments only. No real money moves.</p></footer>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/shop/gifts.js" defer></script>
+</body></html>
