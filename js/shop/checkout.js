@@ -39,7 +39,7 @@
 
     $('[data-change-store]').addEventListener('click', function (e) { Shop.openStorePicker(e.currentTarget); });
     Shop.on('store', function () { renderStore(); renderWhen(); });
-    Shop.on('cart', function () { if (!Shop.cart.count()) empty(); else quote(); });
+    Shop.on('cart', function () { if (!Shop.cart.count()) empty(); else { renderWhen(); quote(); } });
     form.addEventListener('change', onChange);
     form.addEventListener('click', onClick);
     form.addEventListener('submit', place);
@@ -64,6 +64,11 @@
   }
 
   /* ---- Store and pickup time ----------------------------------------------------------------------------------- */
+  // Whole cakes (cake-size six or eight) need a day's notice: no ASAP, and the earliest pickup slot is 24 h away.
+  var NOTICE_MS = 24 * 3600000;
+  function needsNotice() {
+    return Shop.cart.lines().some(function (l) { var s = l.options && l.options['cake-size']; return s === 'six' || s === 'eight'; });
+  }
   function currentStore() { return Shop.store(Shop.storeId()); }
   function renderStore() {
     var st = currentStore(), s = Shop.storeStatus(st);
@@ -76,20 +81,22 @@
   function renderWhen() {
     var st = currentStore(), s = Shop.storeStatus(st);
     var asap = $('input[name="when"][value="asap"]'), later = $('input[name="when"][value="later"]');
+    var notice = needsNotice();
     var anytime = !!Shop.catalog.demoOrdersAnytime;
     var note = $('[data-asap-note]');
-    asap.disabled = !s.open && !anytime;
+    asap.disabled = notice || (!s.open && !anytime);
     if (asap.disabled && asap.checked) later.checked = true;
-    if (s.open) note.textContent = 'Made as soon as you pay: usually ready in about ' + (st.prepMinutes || 5) + ' minutes, a little longer for big orders.';
+    if (notice) note.textContent = "Whole cakes need a day's notice. The earliest pickup is 24 hours from now; smaller orders and slices can be ready sooner, so order them separately.";
+    else if (s.open) note.textContent = 'Made as soon as you pay: usually ready in about ' + (st.prepMinutes || 5) + ' minutes, a little longer for big orders.';
     else if (anytime) note.textContent = st.name + ' is closed right now (' + s.label.toLowerCase() + '). As a demo shop it still makes ASAP orders, so you can try the whole flow at any hour.';
     else note.textContent = st.name + ' is closed right now (' + s.label.toLowerCase() + '). Choose a pickup time below.';
-    var slots = Shop.slots(st);
+    var slots = notice ? Shop.slots(st, 400).filter(function (sl) { return Date.parse(sl.iso) >= Shop.now() + NOTICE_MS; }) : Shop.slots(st);
     var sel = $('[name="slot"]'), keep = sel.value, html = '', day = null;
     slots.forEach(function (sl) {
       if (sl.day !== day) { html += (day ? '</optgroup>' : '') + '<optgroup label="' + esc(sl.day) + '">'; day = sl.day; }
       html += '<option value="' + esc(sl.iso) + '">' + esc(sl.day + ', ' + sl.time) + '</option>';
     });
-    sel.innerHTML = html ? html + '</optgroup>' : '<option value="">No pickup times in the next few days</option>';
+    sel.innerHTML = html ? html + '</optgroup>' : '<option value="">' + (notice ? 'No pickup times a day or more ahead in the next few days' : 'No pickup times in the next few days') + '</option>';
     if (keep && sel.querySelector('option[value="' + keep + '"]')) sel.value = keep;
     $('[data-slot-field]').hidden = !later.checked;
   }
@@ -270,6 +277,7 @@
     if (!name) { fieldError('name', 'Add a name so we can call your order.'); $('[name="name"]').focus(); return; }
     var later = $('input[name="when"][value="later"]').checked;
     var slot = $('[name="slot"]').value;
+    if (later && slot && needsNotice() && Date.parse(slot) < Shop.now() + NOTICE_MS) { Shop.toast("Whole cakes need a day's notice: choose a later pickup time.", { tone: 'danger' }); renderWhen(); return; }
     if (later && !slot) { Shop.toast('Choose a pickup time, or pick as soon as possible.', { tone: 'danger' }); return; }
     var q = state.quote, st = currentStore();
     var body = { items: Shop.cart.lines(), store: st.id, name: name, customer: Shop.customer() };

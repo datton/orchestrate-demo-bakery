@@ -3,9 +3,9 @@
    The cart drawer's styles are in css/shop/core.css (it is on every page). Reads only css/tokens.css variables.
    ===================================================================================================================== */
 
-.checkout-grid { display: grid; gap: var(--space-m); align-items: start; }
-.checkout-main { display: grid; gap: var(--space-m); }
-.checkout-side { display: grid; gap: var(--space-m); }
+.checkout-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-m); align-items: start; }
+.checkout-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-m); min-width: 0; }
+.checkout-side { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-m); min-width: 0; }
 @media (min-width: 960px) {
   .checkout-grid { grid-template-columns: minmax(0, 1fr) minmax(20rem, 26rem); gap: var(--space-xl); }
   .checkout-side { position: sticky; top: calc(var(--header-h) + var(--space-m)); }
@@ -53,10 +53,10 @@
 .co-option__amount { font-weight: var(--weight-bold); color: var(--color-success); font-variant-numeric: tabular-nums; }
 .co-gift__add { display: grid; gap: var(--space-3xs); margin-top: var(--space-2xs); }
 .co-gift__row { display: flex; gap: var(--space-2xs); }
-.co-gift__row input { text-transform: uppercase; font-family: var(--font-mono); letter-spacing: 0.04em; }
+.co-gift__row input { flex: 1 1 auto; min-width: 0; width: auto; text-transform: uppercase; font-family: var(--font-mono); letter-spacing: 0.04em; }
 
 /* Summary */
-.co-summary { gap: var(--space-s); }
+.co-summary { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-s); min-width: 0; }
 .co-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-xs); }
 .co-line { display: flex; gap: var(--space-xs); align-items: baseline; }
 .co-line__qty { font-weight: var(--weight-black); color: var(--color-accent-ink); min-width: 2ch; }
@@ -79,3 +79,6 @@
     box-shadow: var(--shadow-l);
   }
 }
+
+/* The pay button never wider than its card */
+.co-summary [data-submit] { box-sizing: border-box; max-width: 100%; white-space: normal; flex-wrap: wrap; justify-content: center; column-gap: var(--space-s); padding-inline: var(--space-s); }
