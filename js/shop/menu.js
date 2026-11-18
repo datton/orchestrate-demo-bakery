@@ -28,6 +28,10 @@
   }, function (err) { Shop.fail(root, err); });
 
   /* ---- Page --------------------------------------------------------------------------------------------------- */
+  /* Whole cakes are baked to order: these choices need a day's notice (group id -> choice ids). */
+  var AHEAD = { 'cake-size': ['six', 'eight'] };
+  function isAhead(gid, cid) { return (AHEAD[gid] || []).indexOf(cid) > -1; }
+
   function defaultLine(it) { return { item: it.id, qty: 1, options: {} }; }
   function catIcon(id) { var c = cat.categories.filter(function (x) { return x.id === id; })[0]; return (c && c.icon) || 'cup'; }
 
@@ -191,6 +195,7 @@
         (it.badge ? '<span class="badge">' + esc(it.badge) + '</span>' : '') + '</div></div>' +
       (it.soldOut ? '<p class="notice notice--warning">Sold out today. Back tomorrow morning.</p>' : '') +
       (it.options || []).map(function (gid) { return groupHtml(it, gid); }).join('') +
+      '<p class="notice notice--info pf-ahead" data-ahead hidden role="status">Whole cakes are baked to order. Order a day ahead and choose a pickup time tomorrow or later at checkout.</p>' +
       '<div class="field pf-note"><label for="pf-note">Note for the barista <span class="muted">(optional)</span></label>' +
         '<input id="pf-note" name="note" maxlength="140" autocomplete="off" placeholder="Extra hot, light foam…"></div>' +
       '</form>';
@@ -206,6 +211,7 @@
       '<span class="visually-hidden" aria-live="polite" data-total-live></span></div>';
     applyShowIf();
     applyMax();
+    showAhead();
     refreshTotal();
     productSheet.open(opener);
   }
@@ -226,7 +232,8 @@
         return '<label class="chip"><input type="' + (many ? 'checkbox' : 'radio') + '" name="' + esc(gid) + '" value="' + esc(c.id) + '"' +
           (preselect && preselect.id === c.id ? ' checked' : '') + (c.soldOut ? ' disabled' : '') + '>' +
           '<span>' + esc(c.name) + (c.soldOut ? ' (sold out)' : '') + '</span>' +
-          (price ? '<span class="chip__price"> ' + price + '</span>' : '') + '</label>';
+          (price ? '<span class="chip__price"> ' + price + '</span>' : '') +
+          (isAhead(gid, c.id) ? '<span class="chip__ahead">Order a day ahead</span>' : '') + '</label>';
       }).join('') + '</div></fieldset>';
   }
 
@@ -259,7 +266,12 @@
       });
     });
   }
-  function onFormChange() { applyShowIf(); applyMax(); refreshTotal(); }
+  function showAhead() {
+    var form = productSheet.body.querySelector('form'), note = form.querySelector('[data-ahead]');
+    var line = readLine();
+    note.hidden = !Object.keys(AHEAD).some(function (gid) { return isAhead(gid, line.options[gid]); });
+  }
+  function onFormChange() { applyShowIf(); applyMax(); showAhead(); refreshTotal(); }
 
   function readLine() {
     var form = productSheet.body.querySelector('form');

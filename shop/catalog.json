@@ -15,12 +15,12 @@
      "pickup": "Ask at the counter with your pickup number"}
   ],
   "categories": [
-    {"id": "pastry", "name": "Pastries", "blurb": "Laminated by hand, baked through the morning"},
-    {"id": "bread", "name": "Bread", "blurb": "Long-fermented loaves, out of the oven by 8"},
-    {"id": "savoury", "name": "Savoury", "blurb": "Something warm for lunch"},
-    {"id": "cakes", "name": "Cakes & slices", "blurb": "By the slice, or whole with a day's notice"},
-    {"id": "coffee", "name": "Coffee", "blurb": "Pulled to order"},
-    {"id": "other-drinks", "name": "Tea & more", "blurb": "For the non-coffee people"}
+    {"id": "pastry", "name": "Pastries", "blurb": "Laminated by hand, baked through the morning", "icon": "croissant"},
+    {"id": "bread", "name": "Bread", "blurb": "Long-fermented loaves, out of the oven by 8", "icon": "croissant"},
+    {"id": "savoury", "name": "Savoury", "blurb": "Something warm for lunch", "icon": "bowl"},
+    {"id": "cakes", "name": "Cakes & slices", "blurb": "By the slice, or whole with a day's notice", "icon": "croissant"},
+    {"id": "coffee", "name": "Coffee", "blurb": "Pulled to order", "icon": "cup"},
+    {"id": "other-drinks", "name": "Tea & more", "blurb": "For the non-coffee people", "icon": "leaf"}
   ],
   "options": {
     "warm": {"name": "Warm it up", "type": "one", "required": true, "choices": [

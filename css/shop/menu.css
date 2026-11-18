@@ -188,3 +188,11 @@ body.has-cart-bar .app-main { padding-bottom: calc(var(--space-2xl) + 4rem); }
 @media (prefers-reduced-motion: no-preference) { .cart-bar:not([hidden]) { animation: cart-bar-in var(--dur-2) var(--ease-out); } }
 @media (min-width: 960px) { .cart-bar { bottom: var(--space-m); } }
 @keyframes cart-bar-in { from { opacity: 0; transform: translate(-50%, 16px); } }
+
+/* Whole cakes need a day's notice (shown on the size chip and as a note in the product sheet) */
+.chip__ahead { display: block; font-size: var(--step--2); font-weight: var(--weight-semibold); color: var(--color-accent-ink); }
+.pf-ahead[hidden] { display: none; }
+.chip:has(input:checked) .chip__ahead { color: inherit; opacity: 0.85; }
+.pf-foot > .stepper { flex: none; }
+.pf-add { min-width: 0; padding-inline: var(--space-m); }
+@media (max-width: 480px) { .pf-foot { gap: var(--space-xs); } .pf-add { padding-inline: var(--space-s); } .pf-add .btn__price { padding-left: var(--space-2xs); } }
